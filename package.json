@@ -1,0 +1,13 @@
+{
+  "name": "astroprisma",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "molilo",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "less": "^4.2.0"
+  }
+}

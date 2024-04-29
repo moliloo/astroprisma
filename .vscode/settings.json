@@ -1,0 +1,6 @@
+{
+	"less.compile": {
+		"main": "astroprisma.less",
+		"out": "../css/astroprisma.css"
+	}
+}

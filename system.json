@@ -1,0 +1,30 @@
+{
+	"id": "astroprisma",
+	"title": "Astroprisma",
+	"description": "A system for play astroprisma in Foundry Virtual Tabletop alone or with your friends.",
+	"version": "1.0.0",
+	"compatibility": {
+		"minimum": "11",
+		"verified": "11.315"
+	},
+	"authors": [
+		{
+			"name": "molilo"
+		}
+	],
+	"url": "https://github.com/moliloo/astroprisma",
+	"readme": "README.md",
+	"changelog": "CHANGELOG.md",
+	"esmodules": ["module/astroprisma.mjs"],
+	"styles": ["css/astroprisma.css"],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"manifest": "",
+  "download": "",
+  "background": "systems/astroprisma/assets/astroprisma-wallpapper.jpg"
+}
