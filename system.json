@@ -24,7 +24,7 @@
 			"path": "lang/en.json"
 		}
 	],
-	"manifest": "",
+	"manifest": "https://raw.githubusercontent.com/moliloo/astroprisma/main/system.json",
   "download": "",
   "background": "systems/astroprisma/assets/astroprisma-wallpapper.jpg"
 }
