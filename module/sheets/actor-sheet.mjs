@@ -3,7 +3,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 		return mergeObject(super.defaultOptions, {
 			classes: ['astroprisma', 'sheet', 'actor'],
 			width: 600,
-			height: 600,
+			height: 700,
 			template: 'systems/astroprisma/templates/actor/actor-character-sheet.hbs',
 		})
 	}

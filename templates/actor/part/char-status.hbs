@@ -1,1 +1,18 @@
-<h1><input name="status" type="text" placeholder="status" /></h1>
+<div class="attributes flexcol">
+   <h2 class='attribute-vigor'>
+      <label>{{localize "ASTRO.stat.vigor"}}</label>
+		<input name='system.favor.warg.value.value' type='text' placeholder='0' value='{{system.favor.warg.value}}' />
+	</h2>
+   <h2 class='attribute-grace'>
+		<label for="">{{localize 'ASTRO.stat.grace'}}</label>
+		<input name='system.attributes.grace.value' type='number' value='{{system.attributes.grace.value}}' data-dtype="Number"/>
+	</h2>
+   <h2 class='attribute-mind'>
+		<label for="">{{localize 'ASTRO.stat.mind'}}</label>
+		<input name='system.attributes.mind.value' type='number' value='{{system.attributes.mind.value}}' data-dtype="Number"/>
+	</h2>
+   <h2 class='attribute-tech'>
+		<label for="">{{localize 'ASTRO.stat.tech'}}</label>
+		<input name='system.attributes.tech.value' type='number' value='{{system.attributes.tech.value}}' data-dtype="Number"/>
+	</h2>
+</div>

@@ -1,8 +1,8 @@
 {
-	"ASTRO.stat.vig": "VIGOR",
-	"ASTRO.stat.gra": "GRACE",
-	"ASTRO.stat.min": "MIND",
-	"ASTRO.stat.tec": "TECH",
+	"ASTRO.stat.vigor": "VIGOR",
+	"ASTRO.stat.grace": "GRACE",
+	"ASTRO.stat.mind": "MIND",
+	"ASTRO.stat.tech": "TECH",
 	"ASTRO.weapon.type.name": "Type",
 	"ASTRO.weapon.type.ranged": "Ranged",
 	"ASTRO.weapon.type.melee": "Melee",
