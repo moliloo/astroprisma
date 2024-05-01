@@ -1,0 +1,18 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<header class="sheet-header">
+		<img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64" />
+		<h1><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "ASTRO.actor.name"}}" /></h1>
+
+		<h1><input name="actor.origin" type="text" value="{{actor.system.origin.value}}" placeholder="{{localize "ASTRO.actor.origin"}}" /></h1>
+
+	</header>
+	<div class="main">
+		{{> "systems/astroprisma/templates/actor/part/char-summary.hbs"}}
+		{{> "systems/astroprisma/templates/actor/part/char-hyperserum.hbs"}}
+		{{> "systems/astroprisma/templates/actor/part/char-favor.hbs"}}
+	</div>
+	<div class="navigation">
+		{{> "systems/astroprisma/templates/actor/part/char-status.hbs"}}
+		{{> "systems/astroprisma/templates/actor/part/char-tabs.hbs"}}
+	</div>
+</form>

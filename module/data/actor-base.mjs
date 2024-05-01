@@ -4,7 +4,7 @@ export default class AstroprismaActorBase extends foundry.abstract.TypeDataModel
      const fields = foundry.data.fields;
      const requiredInteger = { required: true, nullable: false, integer: true };
      const schema = {};
- 
+
      // Values
      schema.health = new fields.SchemaField({
        value: new fields.NumberField({ ...requiredInteger, initial: 20, min: 0 }),

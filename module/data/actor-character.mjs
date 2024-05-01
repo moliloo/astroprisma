@@ -12,7 +12,7 @@ export default class AstroprismaCharacter extends AstroprismaActorBase {
     });
 
     schema.origin = new fields.SchemaField({
-      level: new fields.SchemaField({
+      name: new fields.SchemaField({
         value: new fields.StringField({ required: true, blank: true })
       }),
     });

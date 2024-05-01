@@ -1,6 +1,7 @@
 {
 	"Actor": {
 		"types": ["character", "npc"],
+		"HTMLField": ["biography"],
 		"character": {},
 		"npc": {}
 	},
