@@ -6,31 +6,35 @@ export default class AstroprismaActorBase extends foundry.abstract.TypeDataModel
      const schema = {};
 
      // Values
-     schema.health = new fields.SchemaField({
-       value: new fields.NumberField({ ...requiredInteger, initial: 20, min: 0 }),
-       max: new fields.NumberField({ ...requiredInteger, initial: 20 })
-     });
-     schema.energy = new fields.SchemaField({
-       value: new fields.NumberField({ ...requiredInteger, initial: 20, min: 0 }),
-       max: new fields.NumberField({ ...requiredInteger, initial: 20 })
-     });
-     schema.armo = new fields.SchemaField({
-      value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
-    });
- 
-    // Attributes
-    schema.vigor = new fields.SchemaField({
-      value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
-    });
-    schema.grace = new fields.SchemaField({
-      value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
-    });
-    schema.mind = new fields.SchemaField({
-      value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
-    });
-    schema.tech = new fields.SchemaField({
-      value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
-    });
+     schema.values = new fields.SchemaField({
+      health: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 20, min: 0 }),
+        max: new fields.NumberField({ ...requiredInteger, initial: 20 })
+      }),
+      energy: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 20, min: 0 }),
+        max: new fields.NumberField({ ...requiredInteger, initial: 20 })
+      }),
+      armo: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
+      })
+     })
+
+     schema.attributes = new fields.SchemaField({
+      vigor: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
+      }),
+      grace: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
+      }),
+      mind: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
+      }),
+      tech: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
+      }),
+     })
+
      return schema;
    }
  }
