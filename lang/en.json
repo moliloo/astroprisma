@@ -21,6 +21,9 @@
 	"ASTRO.actor.energy":"Energy",
 	"ASTRO.actor.armo":"Armo",
 	"ASTRO.actor.exp":"XP",
-	"ASTRO.actor.serum":"Serum"
+	"ASTRO.actor.serum":"Serum",
+	"ASTRO.actor.tab.cybertech":"Cybertech",
+	"ASTRO.actor.tab.weapons":"Weapons | Memory Slots",
+	"ASTRO.actor.tab.inventory":"Inventory"
 
 }

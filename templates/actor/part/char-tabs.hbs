@@ -1,1 +1,18 @@
-<h1><input name="tabs" type="text" placeholder="tabs" /></h1>
+<section class="flexcol">
+<nav class="astro-nav-tab tabs flexrow" data-group="primary">
+   <a data-tab="cybertech">{{localize "ASTRO.actor.tab.cybertech"}}</a>
+   <a data-tab="weapons">{{localize "ASTRO.actor.tab.weapons"}}</a>
+   <a data-tab="inventory">{{localize "ASTRO.actor.tab.inventory"}}</a>
+</nav>
+<div class="astro-select-tab flexcol">
+   <div class="tab" data-group="primary"
+         data-tab="cybertech">{{> "systems/astroprisma/templates/actor/part/tab-cybertech.hbs"}}
+    </div>
+    <div class="tab" data-group="primary"
+         data-tab="weapons">{{> "systems/astroprisma/templates/actor/part/tab-weapons.hbs"}}
+    </div>
+    <div class="tab" data-group="primary"
+         data-tab="inventory">{{> "systems/astroprisma/templates/actor/part/tab-inventory.hbs"}}
+    </div>
+</div>
+</section>

@@ -5,6 +5,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 			width: 600,
 			height: 700,
 			template: 'systems/astroprisma/templates/actor/actor-character-sheet.hbs',
+			tabs: [{ navSelector: ".astro-nav-tab", contentSelector: ".astro-select-tab", initial: "description" }]
 		})
 	}
 
