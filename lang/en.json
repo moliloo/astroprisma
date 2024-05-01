@@ -19,6 +19,6 @@
 	"ASTRO.actor.origin":"Origin",
 	"ASTRO.actor.hp":"Health",
 	"ASTRO.actor.energy":"Energy",
-	"ASTRO.actor.armor":"Armor",
+	"ASTRO.actor.armo":"Armo",
 	"ASTRO.actor.exp":"XP"
 }
