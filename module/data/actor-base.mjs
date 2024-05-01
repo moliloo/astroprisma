@@ -1,7 +1,7 @@
+const fields = foundry.data.fields;
 export default class AstroprismaActorBase extends foundry.abstract.TypeDataModel {
 
    static defineSchema() {
-     const fields = foundry.data.fields;
      const requiredInteger = { required: true, nullable: false, integer: true };
      const schema = {};
 

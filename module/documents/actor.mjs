@@ -12,6 +12,7 @@ export class AstroprismaActor extends Actor {
 
 	}
 
+
 	getRollData() {
 		return { ...super.getRollData(), ...(this.system.getRollData?.() ?? null) }
 	}

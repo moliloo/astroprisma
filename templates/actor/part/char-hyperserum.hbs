@@ -1,33 +1,28 @@
-<h1><input name='hyperdrive' type='number' placeholder='hyper' value="{{actor.system.hyperdrive.value}}" /></h1>
+<h1><input name='system.hyperdrive.value' type='number' placeholder='hyper' value="{{system.hyperdrive.value}}" /></h1>
 <div class="hyperdrive">
 	<a class='death-minus'><i class='fas fa-minus'></i></a>
 	<a class='death-plus'><i class='fas fa-plus'></i></a>
-	{{#if (gt system.hyperdrive 0)}}
+	{{#if (gt system.hyperdrive.value 0)}}
 		<i class="fa-solid fa-ruler-vertical"></i>
 	{{else}}
 		<i class="fa-regular fa-ruler-vertical"></i>
 	{{/if}}
-	{{#if (gt system.hyperdrive 1)}}
+	{{#if (gt system.hyperdrive.value 1)}}
 		<i class="fa-solid fa-ruler-vertical"></i>
 	{{else}}
 		<i class="fa-regular fa-ruler-vertical"></i>
 	{{/if}}
-	{{#if (gt system.hyperdrive 2)}}
+	{{#if (gt system.hyperdrive.value 2)}}
 		<i class="fa-solid fa-ruler-vertical"></i>
 	{{else}}
 		<i class="fa-regular fa-ruler-vertical"></i>
 	{{/if}}
-	{{#if (gt system.hyperdrive 3)}}
+	{{#if (gt system.hyperdrive.value 3)}}
 		<i class="fa-solid fa-ruler-vertical"></i>
 	{{else}}
 		<i class="fa-regular fa-ruler-vertical"></i>
 	{{/if}}
-	{{#if (gt system.hyperdrive 4)}}
-		<i class="fa-solid fa-ruler-vertical"></i>
-	{{else}}
-		<i class="fa-regular fa-ruler-vertical"></i>
-	{{/if}}
-	{{#if (gt system.hyperdrive 5)}}
+	{{#if (gt system.hyperdrive.value 4)}}
 		<i class="fa-solid fa-ruler-vertical"></i>
 	{{else}}
 		<i class="fa-regular fa-ruler-vertical"></i>

@@ -5,18 +5,15 @@ export class AstroprismaActorSheet extends ActorSheet {
          classes: ['astroprisma', 'sheet', 'actor'],
 			width: 600,
 			height: 600,
+			template: 'systems/astroprisma/templates/actor/actor-character-sheet.hbs'
 		})
 	}
 
-   get template() {
-      return `systems/astroprisma/templates/actor/actor-${this.actor.type}-sheet.hbs`
-   }
-	getData(options) {
-		const context = super.getData(options)
+	getData() {
+		const context = super.getData()
 		const actorData = context.data
 
 		context.system = actorData.system
-		context.rollData = context.actor.getRollData()
 		context.config = CONFIG.ASTROPRISMA
 		// context.weapons = data.items.filter(function (item) {
 		// 	return item.type == 'weapon'

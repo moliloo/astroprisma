@@ -1,9 +1,10 @@
 import AstroprismaActorBase from "./actor-base.mjs";
 
+const fields = foundry.data.fields;
+
 export default class AstroprismaCharacter extends AstroprismaActorBase {
 
   static defineSchema() {
-    const fields = foundry.data.fields;
     const requiredInteger = { required: true, nullable: false, integer: true };
     const schema = super.defineSchema();
 
