@@ -27,6 +27,24 @@ export default class AstroprismaCharacter extends AstroprismaActorBase {
       max: new fields.NumberField({ ...requiredInteger, initial: 5 })
     });
 
+    schema.favor = new fields.SchemaField({
+      warg: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0})
+      }),
+      medusa: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0})
+      }),
+      corsair: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0})
+      }),
+      synth: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0})
+      }),
+      isf: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0})
+      }),
+     })
+
     return schema;
   }
 }
