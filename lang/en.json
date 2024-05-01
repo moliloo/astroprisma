@@ -20,5 +20,7 @@
 	"ASTRO.actor.hp":"Health",
 	"ASTRO.actor.energy":"Energy",
 	"ASTRO.actor.armo":"Armo",
-	"ASTRO.actor.exp":"XP"
+	"ASTRO.actor.exp":"XP",
+	"ASTRO.actor.serum":"Serum"
+
 }
