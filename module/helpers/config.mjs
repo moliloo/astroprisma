@@ -9,7 +9,7 @@ astroprisma.ascii = `
 					
 `
 
-astroprisma.statsTypes = {
+astroprisma.statusBonus = {
 	vig: 'ASTRO.stat.vig',
 	gra: 'ASTRO.stat.gra',
 	min: 'ASTRO.stat.min',

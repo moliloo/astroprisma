@@ -3,6 +3,7 @@
 	"ASTRO.stat.grace": "GRACE",
 	"ASTRO.stat.mind": "MIND",
 	"ASTRO.stat.tech": "TECH",
+	"ASTRO.item.description": "Description",
 	"ASTRO.weapon.type.name": "Type",
 	"ASTRO.weapon.type.ranged": "Ranged",
 	"ASTRO.weapon.type.melee": "Melee",

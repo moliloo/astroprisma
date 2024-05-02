@@ -1,12 +1,12 @@
-.astro.sheet.item form {
+.astroprisma.sheet.item form {
   display: flex;
   flex-direction: column;
 }
-.astro.sheet.item .sheet-content {
+.astroprisma.sheet.item .sheet-content {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-.astro.sheet.item .sheet-content .editor {
+.astroprisma.sheet.item .sheet-content .editor {
   height: 100%;
 }
