@@ -4,3 +4,4 @@ export {default as AstroprismaNpc} from "./actor-npc.mjs";
 
 export {default as AstroprismaItemBase} from "./item-base.mjs";
 export {default as AstroprismaWeapon} from "./item-weapon.mjs";
+export {default as AstroprismaHack} from "./item-hack.mjs"
