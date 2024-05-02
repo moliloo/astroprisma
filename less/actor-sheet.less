@@ -1,0 +1,42 @@
+.astroprisma.sheet.actor {
+	.astro-header {
+		margin-top: 20px;
+      margin-bottom: 20px;
+		.values {
+			display: flex;
+			gap: 20px;
+			color: black;
+			background: white;
+			border: 1px solid black;
+			border-radius: 3px;
+			padding: 10px;
+			text-transform: uppercase;
+         margin-bottom: 10px;
+			.values-div {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+            h1, h2, h3 {
+					border-bottom: none;
+               margin: 0;
+            }
+				.values-div-input {
+					width: 3ch;
+               border: none;
+               text-align: center;
+               background: rgba(130, 130, 130, 0.15)
+				}
+            .values-div-input:focus {
+               box-shadow: 0 0 10px #F13D58;
+            }
+			}
+         .values-div > h2 {
+            font-weight: bold;
+         }
+         .values-div > h2.lighter {
+            font-weight: lighter;
+         }
+		}
+      
+	}
+}
