@@ -4,10 +4,13 @@ export class AstroprismaActorSheet extends ActorSheet {
 			classes: ['astroprisma', 'sheet', 'actor'],
 			width: 600,
 			height: 700,
-			template: 'systems/astroprisma/templates/actor/actor-character-sheet.hbs',
 			tabs: [{ navSelector: ".astro-nav-tab", contentSelector: ".astro-select-tab", initial: "description" }]
 		})
 	}
+
+	get template() {
+      return `systems/astroprisma/templates/actor/actor-${this.actor.type}-sheet.hbs`
+   }
 
 	getData() {
 		const context = super.getData()

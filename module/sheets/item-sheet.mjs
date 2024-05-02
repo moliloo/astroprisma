@@ -9,7 +9,7 @@
    }
  
    get template() {
-      return `systems/astroprisma/templates/actor/actor-${this.actor.type}-sheet.hbs`
+      return `systems/astroprisma/templates/item/item-${this.item.type}-sheet.hbs`
    }
  
    /* -------------------------------------------- */
@@ -27,6 +27,8 @@
  
      // Add the item's data to context.data for easier access, as well as flags.
      context.system = itemData.system;
+
+     context.enrichedBiography = TextEditor.enrichHTML(this.object.system.description, {async: true});
  
      return context;
    }

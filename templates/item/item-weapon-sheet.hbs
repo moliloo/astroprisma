@@ -1,0 +1,43 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<header class="sheet-header">
+		<img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64" />
+		<h1><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+	</header>
+	<div class="sheet-content">
+		<table>
+			<tr>
+				<th>{{localize "ASTRO.weapon.type.name"}}</th>
+				<th>{{localize "ASTRO.weapon.damage"}}</th>
+				<th>{{localize "ASTRO.weapon.stats"}}</th>
+				<th>{{localize "ASTRO.weapon.price"}}</th>
+			</tr>
+			<tr>
+				<td>
+					<select name="system.type.name">
+						{{#select system.type.name}}
+						<option value="{{vigor}}">{{localize "ASTRO.stat.vigor"}}</option>
+						<option value="{{grace}}">{{localize "ASTRO.stat.grace"}}</option>
+						<option value="{{mind}}">{{localize "ASTRO.stat.mind"}}</option>
+						<option value="{{tech}}">{{localize "ASTRO.stat.tech"}}</option>
+						{{/select}}
+					</select>
+				</td>
+				<td>
+					<input name="system.damage.roll" type="text" value="{{system.damage.roll}}" data-type="String" />
+				</td>
+				<td>
+					<select name="system.statusBonus.name">
+						{{#select system.statusBonus.name}}
+						<option value="{{ranged}}">{{localize "ASTRO.weapon.type.ranged"}}</option>
+						<option value="{{melee}}">{{localize "ASTRO.weapon.type.melee"}}</option>
+						{{/select}}
+					</select>
+				</td>
+				<td>
+					<input name="system.price.value" type="number" value="{{system.price.value}}" data-type="Number" />
+				</td>
+			</tr>
+		</table>
+		{{editor enrichedBiography target="system.description" button=true owner=owner editable=editable}}
+	</div>
+</form>

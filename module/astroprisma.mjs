@@ -28,9 +28,9 @@ Hooks.once('init', function () {
 		character: models.AstroprismaCharacter,
 		npc: models.AstroprismaNpc,
 	}
-	// CONFIG.Item.dataModels = {
-	//    weapon: models.AstroprismaWeapon
-	// }
+	CONFIG.Item.dataModels = {
+	   weapon: models.AstroprismaWeapon
+	}
 
 	Items.unregisterSheet('core', ItemSheet)
 	Items.registerSheet('astroprisma', AstroprismaItemSheet, { makeDefault: true })
