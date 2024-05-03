@@ -1,35 +1,37 @@
-<div class="hyperserum flexrow">
-<div class='hyperdrive'>
-	<h2>Hyperdrive</h2>
-	<a class='hyper-minus'><i class='fas fa-minus'></i></a>
-	<a class='hyper-plus'><i class='fas fa-plus'></i></a>
-	{{#if (gt system.hyperdrive.value 0)}}
-		<i class='fa-solid fa-ruler-vertical'></i>
-	{{else}}
-		<i class='fa-regular fa-ruler-vertical'></i>
-	{{/if}}
-	{{#if (gt system.hyperdrive.value 1)}}
-		<i class='fa-solid fa-ruler-vertical'></i>
-	{{else}}
-		<i class='fa-regular fa-ruler-vertical'></i>
-	{{/if}}
-	{{#if (gt system.hyperdrive.value 2)}}
-		<i class='fa-solid fa-ruler-vertical'></i>
-	{{else}}
-		<i class='fa-regular fa-ruler-vertical'></i>
-	{{/if}}
-	{{#if (gt system.hyperdrive.value 3)}}
-		<i class='fa-solid fa-ruler-vertical'></i>
-	{{else}}
-		<i class='fa-regular fa-ruler-vertical'></i>
-	{{/if}}
-	{{#if (gt system.hyperdrive.value 4)}}
-		<i class='fa-solid fa-ruler-vertical'></i>
-	{{else}}
-		<i class='fa-regular fa-ruler-vertical'></i>
-	{{/if}}
-</div>
-<div class="serum">
-	<h2>SERUM<input name="system.serum.value" type="text" value="{{system.serum.value}}" placeholder="{{localize "ASTRO.actor.serum"}}" /></h2>
-</div>
+<div class='hyperserum flexrow'>
+	<div class='hyperserum-hyperdrive'>
+		<h2 class='hyperserum-hyperdrive-value'>Hyperdrive</h2>
+		<div class='hyperserum-hyperdrive-value'>
+			<a class='hyper-minus'><i class='fas fa-minus'></i></a>
+			<a class='hyper-plus'><i class='fas fa-plus'></i></a>
+			{{#if (gt system.hyperdrive.value 0)}}
+				<i class='fa-solid fa-ruler-vertical' style="color: #f13d58;"></i>
+			{{else}}
+				<i class='fa-regular fa-ruler-vertical'></i>
+			{{/if}}
+			{{#if (gt system.hyperdrive.value 1)}}
+				<i class='fa-solid fa-ruler-vertical' style="color: #f13d58;"></i>
+			{{else}}
+				<i class='fa-regular fa-ruler-vertical'></i>
+			{{/if}}
+			{{#if (gt system.hyperdrive.value 2)}}
+				<i class='fa-solid fa-ruler-vertical' style="color: #f13d58;"></i>
+			{{else}}
+				<i class='fa-regular fa-ruler-vertical'></i>
+			{{/if}}
+			{{#if (gt system.hyperdrive.value 3)}}
+				<i class='fa-solid fa-ruler-vertical' style="color: #f13d58;"></i>
+			{{else}}
+				<i class='fa-regular fa-ruler-vertical'></i>
+			{{/if}}
+			{{#if (gt system.hyperdrive.value 4)}}
+				<i class='fa-solid fa-ruler-vertical' style="color: #f13d58;"></i>
+			{{else}}
+				<i class='fa-regular fa-ruler-vertical'></i>
+			{{/if}}
+		</div>
+	</div>
+	<div class='hyperserum-serum'>
+		<h2>SERUM<input name='system.serum.value' type='text' value='{{system.serum.value}}' placeholder='{{localize "ASTRO.actor.serum"}}' /></h2>
+	</div>
 </div>
