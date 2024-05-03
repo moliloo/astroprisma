@@ -29,6 +29,7 @@
 				}
 				.values-div-input:focus {
 					box-shadow: 0 0 5px #f13d58;
+					border: 1px solid #f13d58;
 				}
 			}
 			.values-div > h2 {
@@ -86,6 +87,7 @@
 
 				.hyperserum-serum-input:focus {
 					box-shadow: 0 0 5px #f13d58;
+					border: 1px solid #f13d58;
 				}
 			}
 			.hyperserum-serum > h2 {
@@ -118,10 +120,66 @@
 				}
 				.favor-div-input:focus {
 					box-shadow: 0 0 5px #f13d58;
+					border: 1px solid #f13d58;
 				}
 			}
 			.favor-div > h3 {
 				padding-top: 5px;
+			}
+		}
+	}
+	.astro-sidebar {
+		margin-bottom: 20px;
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 20px;
+		.attributes {
+			flex-direction: column;
+
+			gap: 10px;
+			color: white;
+			text-transform: uppercase;
+
+			.attribute-div {
+				display: flex;
+				color: black;
+				gap: 10px;
+				background-color: black;
+				border-radius: 5px;
+				padding: 10px;
+				text-transform: uppercase;
+				align-items: center;
+				justify-content: center;
+				place-content: space-around;
+				h1,
+				h2,
+				h3 {
+					border-bottom: none;
+					margin: 0;
+				}
+				.attribute-div-label {
+					background-color: white;
+					width: 8ch;
+					padding: 5px;
+					border-radius: 10px 0px 15px 0px;
+					font-weight: bold;
+					text-align: center;
+				}
+				.attribute-div-label:hover {
+					background-color: #f13d58;
+					cursor: pointer;
+				}
+				.attribute-div-input {
+					width: 3ch;
+					padding: 5px;
+					border: none;
+					text-align: center;
+					background: rgba(255, 255, 255, 1);
+				}
+				.attribute-div-input:focus {
+					box-shadow: 0 0 5px #f13d58;
+					border: 1px solid #f13d58;
+				}
 			}
 		}
 	}

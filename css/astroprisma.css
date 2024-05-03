@@ -31,6 +31,7 @@
 }
 .astroprisma.sheet.actor .astro-header .values .values-div .values-div-input:focus {
   box-shadow: 0 0 5px #f13d58;
+  border: 1px solid #f13d58;
 }
 .astroprisma.sheet.actor .astro-header .values .values-div > h2 {
   font-weight: bold;
@@ -87,6 +88,7 @@
 }
 .astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum .hyperserum-serum-input:focus {
   box-shadow: 0 0 5px #f13d58;
+  border: 1px solid #f13d58;
 }
 .astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum > h2 {
   font-weight: bold;
@@ -119,9 +121,63 @@
 }
 .astroprisma.sheet.actor .astro-header .favor .favor-div .favor-div-input:focus {
   box-shadow: 0 0 5px #f13d58;
+  border: 1px solid #f13d58;
 }
 .astroprisma.sheet.actor .astro-header .favor .favor-div > h3 {
   padding-top: 5px;
+}
+.astroprisma.sheet.actor .astro-sidebar {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+.astroprisma.sheet.actor .astro-sidebar .attributes {
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  text-transform: uppercase;
+}
+.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div {
+  display: flex;
+  color: black;
+  gap: 10px;
+  background-color: black;
+  border-radius: 5px;
+  padding: 10px;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  place-content: space-around;
+}
+.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div h1,
+.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div h2,
+.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div h3 {
+  border-bottom: none;
+  margin: 0;
+}
+.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div .attribute-div-label {
+  background-color: white;
+  width: 8ch;
+  padding: 5px;
+  border-radius: 10px 0px 15px 0px;
+  font-weight: bold;
+  text-align: center;
+}
+.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div .attribute-div-label:hover {
+  background-color: #f13d58;
+  cursor: pointer;
+}
+.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div .attribute-div-input {
+  width: 3ch;
+  padding: 5px;
+  border: none;
+  text-align: center;
+  background: #ffffff;
+}
+.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div .attribute-div-input:focus {
+  box-shadow: 0 0 5px #f13d58;
+  border: 1px solid #f13d58;
 }
 .astroprisma.sheet.item form {
   display: flex;
