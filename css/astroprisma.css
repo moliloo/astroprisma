@@ -30,7 +30,7 @@
   background: rgba(130, 130, 130, 0.15);
 }
 .astroprisma.sheet.actor .astro-header .values .values-div .values-div-input:focus {
-  box-shadow: 0 0 10px #f13d58;
+  box-shadow: 0 0 5px #f13d58;
 }
 .astroprisma.sheet.actor .astro-header .values .values-div > h2 {
   font-weight: bold;
@@ -40,6 +40,7 @@
 }
 .astroprisma.sheet.actor .astro-header .hyperserum {
   margin-bottom: 10px;
+  gap: 10px;
 }
 .astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-hyperdrive {
   display: flex;
@@ -50,6 +51,7 @@
   padding: 10px;
   text-transform: uppercase;
   align-items: center;
+  justify-content: center;
 }
 .astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-hyperdrive h1,
 .astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-hyperdrive h2,
@@ -68,6 +70,26 @@
   border-radius: 3px;
   padding: 10px;
   text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+}
+.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum h1,
+.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum h2,
+.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum h3 {
+  border-bottom: none;
+  margin: 0;
+}
+.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum .hyperserum-serum-input {
+  width: 10ch;
+  border: none;
+  text-align: center;
+  background: rgba(130, 130, 130, 0.15);
+}
+.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum .hyperserum-serum-input:focus {
+  box-shadow: 0 0 5px #f13d58;
+}
+.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum > h2 {
+  font-weight: bold;
 }
 .astroprisma.sheet.item form {
   display: flex;
