@@ -24,6 +24,8 @@
 	"ASTRO.actor.exp": "XP",
 	"ASTRO.actor.serum": "Serum",
 	"ASTRO.actor.tab.cybertech": "Cybertech",
-	"ASTRO.actor.tab.weapons": "Weapons | Memory Slots",
-	"ASTRO.actor.tab.inventory": "Inventory"
+	"ASTRO.actor.tab.weapons": "Weapons",
+	"ASTRO.actor.tab.inventory": "Inventory",
+	"ASTRO.actor.tab.biography": "Biography",
+	"ASTRO.actor.tab.effects": "Effects"
 }

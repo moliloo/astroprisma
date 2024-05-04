@@ -34,6 +34,8 @@ export default class AstroprismaActorBase extends foundry.abstract.TypeDataModel
 			}),
 		})
 
+		schema.biography = new fields.HTMLField({ required: true, blank: true, initial: 'Biography' })
+
 		return schema
 	}
 }

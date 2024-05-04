@@ -179,6 +179,21 @@
   box-shadow: 0 0 5px #f13d58;
   border: 1px solid #f13d58;
 }
+.astroprisma.sheet.actor .astro-sidebar .tabs {
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+.astroprisma.sheet.actor .astro-sidebar .tabs .tab-nav {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  gap: 20px;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+}
 .astroprisma.sheet.item form {
   display: flex;
   flex-direction: column;

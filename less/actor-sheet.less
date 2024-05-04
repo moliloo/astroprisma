@@ -182,5 +182,21 @@
 				}
 			}
 		}
+
+		.tabs {
+			display: grid;
+			grid-template-rows: 1fr 6fr;
+			border: 1px solid black;
+			border-radius: 3px;
+			.tab-nav {
+				display: flex;
+				flex-direction: row;
+				padding: 10px;
+				gap: 20px;
+				background-color: black;
+				color: white;
+				text-transform: uppercase;
+			}
+		}
 	}
 }
