@@ -182,8 +182,10 @@
 .astroprisma.sheet.actor .astro-sidebar .tabs {
   display: grid;
   grid-template-rows: 1fr 6fr;
+  grid-template-columns: 1fr;
   border: 1px solid black;
   border-radius: 3px;
+  font-size: 12px;
 }
 .astroprisma.sheet.actor .astro-sidebar .tabs .tab-nav {
   display: flex;
