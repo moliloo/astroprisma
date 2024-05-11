@@ -7,6 +7,8 @@
 .astroprisma.sheet.actor .astro-header .char-img {
   height: 140px;
   width: 120px;
+  object-fit: cover;
+  border-radius: 3px;
 }
 .astroprisma.sheet.actor .astro-header .char-data {
   display: flex;
@@ -228,6 +230,11 @@
   background-color: black;
   color: white;
   text-transform: uppercase;
+}
+.astroprisma.sheet.actor .astro-footer {
+  border: 1px solid black;
+  border-radius: 3px;
+  height: 100px;
 }
 .astroprisma.sheet.item form {
   display: flex;
