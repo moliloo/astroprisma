@@ -31,6 +31,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 		html.find('.hyper-plus').on('click', this._addHyperdriveValue.bind(this))
 
 		html.find('.item-display').on('click', this._onItemDisplayInfo.bind(this))
+		html.find(".item-edit").on("click", this._onItemEdit.bind(this))
 		if (!this.isEditable) return
 		html.find('.item-create').on('click', this._onItemCreate.bind(this))
 		html.on('click', '.item-delete', (ev) => {
@@ -115,6 +116,15 @@ export class AstroprismaActorSheet extends ActorSheet {
 		let editor = $(section).find('.item-info')
 		editor.toggleClass('invisible')
 	}
+
+	_onItemEdit(event) {
+		event.preventDefault();
+		event.stopPropagation()
+		let itemId = event.currentTarget.closest(".item").dataset.itemId;
+		let item = this.actor.items.get(itemId);
+  
+		item.sheet.render(true)
+	 }
 
 	_onRoll(event) {
 		event.preventDefault()
