@@ -231,6 +231,9 @@
   color: white;
   text-transform: uppercase;
 }
+.astroprisma.sheet.actor .astro-sidebar .tabs .items-list .invisible {
+  display: none;
+}
 .astroprisma.sheet.actor .astro-footer {
   border: 1px solid black;
   border-radius: 3px;
