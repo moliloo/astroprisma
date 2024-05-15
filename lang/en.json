@@ -28,5 +28,9 @@
 	"ASTRO.actor.tab.inventory": "Inventory",
 	"ASTRO.actor.tab.biography": "Biography",
 	"ASTRO.actor.tab.effects": "Effects",
-	"ASTRO.actor.tab.actions": "Actions"
+	"ASTRO.actor.tab.actions": "Actions",
+	"ASTRO.actor.item.newItem": "New Item",
+	"ASTRO.actor.item.newWeapon": "Create New Weapon",
+	"ASTRO.actor.weapons.name": "Name",
+	"ASTRO.actor.weapons.damage": "Damage"
 }

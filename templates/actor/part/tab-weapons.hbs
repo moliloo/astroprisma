@@ -1,1 +1,38 @@
-<h1>weapons</h1>
+<ol class='items-list'>
+	<li class='item flexrow items-header'>
+		<h3>weapons</h3>
+		<h3 class='item-name'>{{localize 'ASTRO.actor.weapons.name'}}</h3>
+		<h3 class='item-formula'>{{localize 'ASTRO.actor.weapons.damage'}}</h3>
+		<h3>{{localize 'ASTRO.weapon.price'}}</h3>
+		<h3 class='item-controls'>
+			<a class='item-control item-create' title='{{localize "ASTRO.actor.item.newWeapon"}}' data-type='weapon'>
+				<i class='fas fa-plus'></i>
+			</a>
+		</h3>
+	</li>
+	{{#each weapons as |item id|}}
+		<li class='weapon-item item flexcol' data-item-id='{{item._id}}'>
+			<div class='flexrow'>
+				<img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
+				<h4 type='text' data-type='String'>{{item.name}}</h4>
+				<h4 type='text' data-type='String'>{{system.damage.roll}}+[{{system.statusBonus.name}}]</h4>
+				<h4 type='number' data-type='String'>{{system.price.value}}</h4>
+				<div class='item-controls'>
+					<a class='item-control' title='Info Item'>
+						<i class='fa-solid fa-folder'></i>
+					</a>
+					<a class='item-control' title='Edit Item'>
+						<i class='fa-solid fa-pen-to-square'></i>
+					</a>
+					<a class='item-control item-delete' title='Delet Item'>
+						<i class='fas fa-trash'></i>
+					</a>
+				</div>
+			</div>
+			<div>
+				<div>{{{system.description}}}</div>
+			</div>
+
+		</li>
+	{{/each}}
+</ol>
