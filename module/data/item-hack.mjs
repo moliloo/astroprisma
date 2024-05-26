@@ -15,6 +15,10 @@ export default class AstroprismaHack extends AstroprismaItemBase {
 			roll: new fields.StringField({ required: true, blank: true }),
 		})
 
+		schema.statusBonus = new fields.SchemaField({
+			name: new fields.StringField({ required: true, blank: true }),
+		})
+
       schema.causeDamage = new fields.SchemaField({
 			boolean: new fields.BooleanField({initial: false})
 		})
