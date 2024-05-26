@@ -1,4 +1,4 @@
-import { astroprisma } from "../helpers/config.mjs"
+import { astroprisma } from '../helpers/config.mjs'
 
 export class AstroprismaActorSheet extends ActorSheet {
 	static get defaultOptions() {
@@ -20,7 +20,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 
 		context.system = actorData.system
 		context.config = CONFIG.ASTROPRISMA
-		context.rollData = context.actor.getRollData();
+		context.rollData = context.actor.getRollData()
 
 		this._prepareItems(context)
 
@@ -33,12 +33,13 @@ export class AstroprismaActorSheet extends ActorSheet {
 		html.find('.hyper-minus').on('click', this._removeHyperdriveValue.bind(this))
 		html.find('.hyper-plus').on('click', this._addHyperdriveValue.bind(this))
 
+		if (!this.isEditable) return
+
 		html.find('.item-display').on('click', this._onItemDisplayInfo.bind(this))
 		html.find('.item-edit').on('click', this._onItemEdit.bind(this))
-		
-		if (!this.isEditable) return
-		html.find('.item-create').on('click', this._onItemCreate.bind(this))
 		html.on('click', '.rollable', this._onRoll.bind(this))
+
+		html.find('.item-create').on('click', this._onItemCreate.bind(this))
 		html.on('click', '.item-delete', (ev) => {
 			const li = $(ev.currentTarget).parents('.item')
 			const item = this.actor.items.get(li.data('itemId'))
@@ -53,8 +54,20 @@ export class AstroprismaActorSheet extends ActorSheet {
 				li.addEventListener('dragstart', handler, false)
 			})
 		}
+
+		new ContextMenu(html, '.weapon-item', this.itemContextMenu)
 	}
 
+	itemContextMenu = [
+		{
+			name: 'Edit',
+			icon: '<i class="fa-solid fa-pen-to-square item-control item-edit"></i>',
+			callback: event => {
+				const item = this.actor.items.get(event[0].attributes[1].nodeValue)
+				item.sheet.render(true)
+			},
+		},
+	]
 	async _prepareItems(event) {
 		// Initialize containers.
 		const weapons = []
@@ -95,7 +108,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 	async _onItemCreate(event) {
 		event.preventDefault()
 		let element = event.currentTarget
-		if (element.dataset.type = 'weapon') {
+		if ((element.dataset.type = 'weapon')) {
 			let itemData = {
 				name: game.i18n.localize('ASTRO.actor.item.newItem'),
 				type: element.dataset.type,
@@ -116,30 +129,30 @@ export class AstroprismaActorSheet extends ActorSheet {
 	}
 
 	_onRoll(event) {
-		event.preventDefault();
-		const element = event.currentTarget;
-		const dataset = element.dataset;
-  
+		event.preventDefault()
+		const element = event.currentTarget
+		const dataset = element.dataset
+
 		// Handle item rolls.
 		if (dataset.rollType) {
-		  if (dataset.rollType == 'item') {
-			 const itemId = element.closest('.item').dataset.itemId;
-			 const item = this.actor.items.get(itemId);
-			 if (item) return item.roll();
-		  }
+			if (dataset.rollType == 'item') {
+				const itemId = element.closest('.item').dataset.itemId
+				const item = this.actor.items.get(itemId)
+				if (item) return item.roll()
+			}
 		}
-  
+
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
-		  let label = dataset.label ? `[ability] ${dataset.label}` : '';
-		  let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${dataset.bonus.toUpperCase()}]`
-		  let roll = new Roll(damage, this.actor.getRollData());
-		  roll.toMessage({
-			 speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-			 flavor: label,
-			 rollMode: game.settings.get('core', 'rollMode'),
-		  });
-		  return roll;
+			let label = dataset.label ? `[ability] ${dataset.label}` : ''
+			let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${dataset.bonus.toUpperCase()}]`
+			let roll = new Roll(damage, this.actor.getRollData())
+			roll.toMessage({
+				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+				flavor: label,
+				rollMode: game.settings.get('core', 'rollMode'),
+			})
+			return roll
 		}
 	}
 
@@ -154,11 +167,10 @@ export class AstroprismaActorSheet extends ActorSheet {
 	_onItemEdit(event) {
 		event.preventDefault()
 		event.stopPropagation()
+		console.log(event)
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
 
 		item.sheet.render(true)
 	}
-
-	
 }
