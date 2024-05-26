@@ -1,4 +1,4 @@
-export class AstroprismaItem extends Item {
+export class AstroprismaItem extends Item {	
 	prepareData() {
 		super.prepareData()
 	}

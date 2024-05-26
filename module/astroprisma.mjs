@@ -23,6 +23,7 @@ Hooks.once('init', function () {
 
 	CONFIG.Actor.documentClass = AstroprismaActor
 	CONFIG.Item.documentClass = AstroprismaItem
+	CONFIG.Item.entityClass = AstroprismaItem
 
 	CONFIG.Actor.dataModels = {
 		character: models.AstroprismaCharacter,

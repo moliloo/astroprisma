@@ -1,3 +1,5 @@
+import { astroprisma } from "../helpers/config.mjs"
+
 export class AstroprismaActorSheet extends ActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -18,6 +20,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 
 		context.system = actorData.system
 		context.config = CONFIG.ASTROPRISMA
+		context.rollData = context.actor.getRollData();
 
 		this._prepareItems(context)
 
@@ -31,9 +34,11 @@ export class AstroprismaActorSheet extends ActorSheet {
 		html.find('.hyper-plus').on('click', this._addHyperdriveValue.bind(this))
 
 		html.find('.item-display').on('click', this._onItemDisplayInfo.bind(this))
-		html.find(".item-edit").on("click", this._onItemEdit.bind(this))
+		html.find('.item-edit').on('click', this._onItemEdit.bind(this))
+		
 		if (!this.isEditable) return
 		html.find('.item-create').on('click', this._onItemCreate.bind(this))
+		html.on('click', '.rollable', this._onRoll.bind(this))
 		html.on('click', '.item-delete', (ev) => {
 			const li = $(ev.currentTarget).parents('.item')
 			const item = this.actor.items.get(li.data('itemId'))
@@ -90,23 +95,52 @@ export class AstroprismaActorSheet extends ActorSheet {
 	async _onItemCreate(event) {
 		event.preventDefault()
 		let element = event.currentTarget
-		let itemData = {
-			name: game.i18n.localize('ASTRO.actor.item.newItem'),
-			type: element.dataset.type,
-			system: {
-				damage: {
-					roll: '1d6',
+		if (element.dataset.type = 'weapon') {
+			let itemData = {
+				name: game.i18n.localize('ASTRO.actor.item.newItem'),
+				type: element.dataset.type,
+				system: {
+					damage: {
+						roll: '1d6',
+					},
+					price: {
+						value: 0,
+					},
+					statusBonus: {
+						name: 'VIGOR',
+					},
 				},
-				price: {
-					value: 0,
-				},
-				statusBonus: {
-					name: 'VIGOR',
-				},
-			},
+			}
+			return await Item.create(itemData, { parent: this.actor })
 		}
+	}
 
-		return await Item.create(itemData, { parent: this.actor })
+	_onRoll(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const dataset = element.dataset;
+  
+		// Handle item rolls.
+		if (dataset.rollType) {
+		  if (dataset.rollType == 'item') {
+			 const itemId = element.closest('.item').dataset.itemId;
+			 const item = this.actor.items.get(itemId);
+			 if (item) return item.roll();
+		  }
+		}
+  
+		// Handle rolls that supply the formula directly.
+		if (dataset.roll) {
+		  let label = dataset.label ? `[ability] ${dataset.label}` : '';
+		  let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${dataset.bonus.toUpperCase()}]`
+		  let roll = new Roll(damage, this.actor.getRollData());
+		  roll.toMessage({
+			 speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+			 flavor: label,
+			 rollMode: game.settings.get('core', 'rollMode'),
+		  });
+		  return roll;
+		}
 	}
 
 	_onItemDisplayInfo(event) {
@@ -118,38 +152,13 @@ export class AstroprismaActorSheet extends ActorSheet {
 	}
 
 	_onItemEdit(event) {
-		event.preventDefault();
-		event.stopPropagation()
-		let itemId = event.currentTarget.closest(".item").dataset.itemId;
-		let item = this.actor.items.get(itemId);
-  
-		item.sheet.render(true)
-	 }
-
-	_onRoll(event) {
 		event.preventDefault()
-		const element = event.currentTarget
-		const dataset = element.dataset
+		event.stopPropagation()
+		let itemId = event.currentTarget.closest('.item').dataset.itemId
+		let item = this.actor.items.get(itemId)
 
-		// Handle item rolls.
-		if (dataset.rollType) {
-			if (dataset.rollType == 'item') {
-				const itemId = element.closest('.item').dataset.itemId
-				const item = this.actor.items.get(itemId)
-				if (item) return item.roll()
-			}
-		}
-
-		// Handle rolls that supply the formula directly.
-		if (dataset.roll) {
-			let label = dataset.label ? `[ability] ${dataset.label}` : ''
-			let roll = new Roll(dataset.roll, this.actor.getRollData())
-			roll.toMessage({
-				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				flavor: label,
-				rollMode: game.settings.get('core', 'rollMode'),
-			})
-			return roll
-		}
+		item.sheet.render(true)
 	}
+
+	
 }
