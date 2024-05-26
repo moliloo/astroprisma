@@ -64,7 +64,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 
 	itemContextMenu = [
 		{
-			name: 'Edit',
+			name: game.i18n.localize('ASTRO.actor.itemOption.editItem'),
 			icon: '<i class="fa-solid fa-pen-to-square"></i>',
 			callback: (event) => {
 				const item = this.actor.items.get(event[0].attributes[1].nodeValue)
@@ -72,7 +72,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 			},
 		},
 		{
-			name: 'Delete',
+			name: game.i18n.localize('ASTRO.actor.itemOption.deleteItem'),
 			icon: '<i class="fas fa-trash"></i>',
 			callback: (event) => {
 				const item = this.actor.items.get(event[0].attributes[1].nodeValue)
@@ -123,7 +123,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 		let element = event.currentTarget
 		if ((element.dataset.type = 'weapon')) {
 			let itemData = {
-				name: game.i18n.localize('ASTRO.actor.item.newItem'),
+				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
 				type: element.dataset.type,
 				system: {
 					damage: {

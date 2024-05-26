@@ -29,8 +29,14 @@
 	"ASTRO.actor.tab.biography": "Biography",
 	"ASTRO.actor.tab.effects": "Effects",
 	"ASTRO.actor.tab.actions": "Actions",
-	"ASTRO.actor.item.newItem": "New Item",
-	"ASTRO.actor.item.newWeapon": "Create New Weapon",
+	"ASTRO.actor.itemOption.newItem": "New Item",
+	"ASTRO.actor.itemOption.newWeapon": "Create New Weapon",
 	"ASTRO.actor.weapons.name": "Name",
-	"ASTRO.actor.weapons.damage": "Damage"
+	"ASTRO.actor.weapons.damage": "Damage",
+	"ASTRO.actor.itemOption.equip": "Equip Item",
+	"ASTRO.actor.itemOption.unequip": "Unequip Item",
+	"ASTRO.actor.itemOption.info": "Click and see the item information",
+	"ASTRO.actor.itemOption.roll": "Click to roll the damage",
+	"ASTRO.actor.itemOption.editItem": "Edit Item",
+	"ASTRO.actor.itemOption.deleteItem": "Delete Item"
 }
