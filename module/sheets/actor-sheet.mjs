@@ -35,6 +35,9 @@ export class AstroprismaActorSheet extends ActorSheet {
 
 		if (!this.isEditable) return
 
+		html.on('click', '.item-toggle-equip', this._equipItem.bind(this))
+		html.on('click', '.item-toggle-unequip', this._unequipItem.bind(this))
+
 		html.find('.item-display').on('click', this._onItemDisplayInfo.bind(this))
 		html.find('.item-edit').on('click', this._onItemEdit.bind(this))
 		html.on('click', '.rollable', this._onRoll.bind(this))
@@ -46,6 +49,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 			item.delete()
 			li.slideUp(200, () => this.render(false))
 		})
+
 		if (this.actor.isOwner) {
 			let handler = (ev) => this._onDragStart(ev)
 			html.find('li.item').each((i, li) => {
@@ -76,6 +80,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 			},
 		},
 	]
+
 	async _prepareItems(event) {
 		// Initialize containers.
 		const weapons = []
@@ -134,6 +139,20 @@ export class AstroprismaActorSheet extends ActorSheet {
 			}
 			return await Item.create(itemData, { parent: this.actor })
 		}
+	}
+
+	async _equipItem(event) {
+		event.preventDefault()
+		let itemId = event.currentTarget.closest('.item').dataset.itemId
+		let item = this.actor.items.get(itemId)
+		await item.update({ 'system.eqquiped.boolean': true })
+	}
+
+	async _unequipItem(event) {
+		event.preventDefault()
+		let itemId = event.currentTarget.closest('.item').dataset.itemId
+		let item = this.actor.items.get(itemId)
+		await item.update({ 'system.eqquiped.boolean': false })
 	}
 
 	_onRoll(event) {
