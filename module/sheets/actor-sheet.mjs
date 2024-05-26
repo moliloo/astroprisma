@@ -61,10 +61,18 @@ export class AstroprismaActorSheet extends ActorSheet {
 	itemContextMenu = [
 		{
 			name: 'Edit',
-			icon: '<i class="fa-solid fa-pen-to-square item-control item-edit"></i>',
-			callback: event => {
+			icon: '<i class="fa-solid fa-pen-to-square"></i>',
+			callback: (event) => {
 				const item = this.actor.items.get(event[0].attributes[1].nodeValue)
 				item.sheet.render(true)
+			},
+		},
+		{
+			name: 'Delete',
+			icon: '<i class="fas fa-trash"></i>',
+			callback: (event) => {
+				const item = this.actor.items.get(event[0].attributes[1].nodeValue)
+				item.delete()
 			},
 		},
 	]
