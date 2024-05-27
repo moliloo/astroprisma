@@ -5,7 +5,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 		return mergeObject(super.defaultOptions, {
 			classes: ['astroprisma', 'sheet', 'actor'],
 			width: 630,
-			height: 780,
+			height: 670,
 			tabs: [{ navSelector: '.tab-nav', contentSelector: '.tab-select', initial: 'description' }],
 		})
 	}

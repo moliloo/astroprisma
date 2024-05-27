@@ -5,7 +5,6 @@ export const preloadHandlebarsTemplates = async function () {
 		'systems/astroprisma/templates/actor/part/character/char-favor.hbs',
 		'systems/astroprisma/templates/actor/part/character/char-status.hbs',
 		'systems/astroprisma/templates/actor/part/character/char-tabs.hbs',
-		'systems/astroprisma/templates/actor/part/character/tab-cybertech.hbs',
 		'systems/astroprisma/templates/actor/part/character/tab-inventory.hbs',
 		'systems/astroprisma/templates/actor/part/character/tab-weapons.hbs',
 		'systems/astroprisma/templates/actor/part/character/tab-biography.hbs',
