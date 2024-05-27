@@ -15,7 +15,16 @@
 			<li class='weapon-item item flexcol' data-item-id='{{item._id}}'>
 				<div class='flexrow item-row'>
 					<img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
-					<a title='{{localize "ASTRO.actor.itemOption.roll"}}' class='rollable' data-roll-type='weapon' data-roll='{{system.damage.roll}}' data-bonus='{{system.statusBonus.name}}' data-label='{{item.name}}'>
+					<a
+						title='{{localize "ASTRO.actor.itemOption.roll"}}'
+						class='rollable'
+						data-roll-type='weapon'
+						data-roll='{{system.damage.roll}}'
+						data-bonus='{{system.statusBonus.name}}'
+						data-label='{{item.name}}'
+						data-description='{{{system.description}}}'
+						data-img='{{item.img}}'
+					>
 						<h4 type='text' data-type='String'>{{item.name}}</h4>
 					</a>
 					<h4 type='text' data-type='String'>{{system.damage.roll}}+[<span style='text-transform: uppercase;'>{{system.statusBonus.name}}</span>]</h4>
@@ -60,7 +69,16 @@
 			<li class='hack-item item flexcol' data-item-id='{{item._id}}'>
 				<div class='flexrow item-row'>
 					<img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
-					<a title='{{localize "ASTRO.actor.itemOption.roll"}}' class='rollable' data-roll-type='hack' data-roll='{{system.damage.roll}}' data-bonus='{{system.statusBonus.name}}' data-label='{{item.name}}'>
+					<a
+						title='{{localize "ASTRO.actor.itemOption.roll"}}'
+						class='rollable'
+						data-roll-type='hack'
+						data-roll='{{system.damage.roll}}'
+						data-bonus='{{system.statusBonus.name}}'
+						data-label='{{item.name}}'
+						data-description='{{{system.description}}}'
+						data-img='{{item.img}}'
+					>
 						<h4 type='text' data-type='String'>{{item.name}}</h4>
 					</a>
 					{{#if system.causeDamage.boolean}}

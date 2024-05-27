@@ -184,6 +184,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 		event.preventDefault()
 		const element = event.currentTarget
 		const dataset = element.dataset
+		console.log(dataset)
 
 		// Handle item rolls.
 		if (dataset.rollType) {
@@ -196,7 +197,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
-			let label = dataset.label ? `[ability] ${dataset.label}` : ''
+			let label =`<h1><img src='${dataset.img} height='40' width='40' />${dataset.label}</h1>${dataset.description}`
 			let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${dataset.bonus.toUpperCase()}]`
 			let roll = new Roll(damage, this.actor.getRollData())
 			roll.toMessage({
