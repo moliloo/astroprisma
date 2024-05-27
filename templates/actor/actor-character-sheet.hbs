@@ -5,18 +5,18 @@
 		<h1><input class="char-data-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize "ASTRO.actor.name"}}" /></h1>
 		<h1><input class="char-data-origin" name="system.origin.name.value" type="text" value="{{system.origin.name.value}}" placeholder="{{localize "ASTRO.actor.origin"}}" /></h1>
 		</div>
-		{{> "systems/astroprisma/templates/actor/part/char-hyperserum.hbs"}}
+		{{> "systems/astroprisma/templates/actor/part/character/char-hyperserum.hbs"}}
 
 	</header>
 		<section class="astro-section">
-			{{> "systems/astroprisma/templates/actor/part/char-summary.hbs"}}
-			{{> "systems/astroprisma/templates/actor/part/char-favor.hbs"}}
+			{{> "systems/astroprisma/templates/actor/part/character/char-summary.hbs"}}
+			{{> "systems/astroprisma/templates/actor/part/character/char-favor.hbs"}}
 		</section>
 		<section class="astro-sidebar flexrow">
-			{{> "systems/astroprisma/templates/actor/part/char-status.hbs"}}
-			{{> "systems/astroprisma/templates/actor/part/char-tabs.hbs"}}
+			{{> "systems/astroprisma/templates/actor/part/character/char-status.hbs"}}
+			{{> "systems/astroprisma/templates/actor/part/character/char-tabs.hbs"}}
 		</section>
 		<section class="astro-footer">
-			{{> "systems/astroprisma/templates/actor/part/tab-effects.hbs"}}
+			{{> "systems/astroprisma/templates/actor/part/character/tab-effects.hbs"}}
 		</section>
 </form>
