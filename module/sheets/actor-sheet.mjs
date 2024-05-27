@@ -60,6 +60,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 		}
 
 		new ContextMenu(html, '.weapon-item', this.itemContextMenu)
+		new ContextMenu(html, '.hack-item', this.itemContextMenu)
 	}
 
 	itemContextMenu = [
@@ -121,7 +122,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 	async _onItemCreate(event) {
 		event.preventDefault()
 		let element = event.currentTarget
-		if ((element.dataset.type = 'weapon')) {
+		if ((element.dataset.type === 'weapon')) {
 			let itemData = {
 				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
 				type: element.dataset.type,
@@ -133,7 +134,31 @@ export class AstroprismaActorSheet extends ActorSheet {
 						value: 0,
 					},
 					statusBonus: {
-						name: 'VIGOR',
+						name: 'vigor',
+					},
+				},
+			}
+			return await Item.create(itemData, { parent: this.actor })
+		}
+		if ((element.dataset.type === 'hack')) {
+			let itemData = {
+				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
+				type: element.dataset.type,
+				system: {
+					damage: {
+						roll: '0',
+					},
+					causeDamage: {
+						boolean: false,
+					},
+					energyCost: {
+						value: 0,
+					},
+					eqquiped: {
+						boolean: false,
+					},
+					statusBonus: {
+						name: 'mind',
 					},
 				},
 			}

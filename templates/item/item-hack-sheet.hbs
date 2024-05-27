@@ -11,6 +11,7 @@
 				<th>{{localize 'ASTRO.hack.theresDamage'}}</th>
 				{{#unless (eq system.causeDamage.boolean false)}}
 					<th>{{localize 'ASTRO.weapon.damage'}}</th>
+					<th>{{localize 'ASTRO.weapon.stats'}}</th>
 				{{/unless}}
 			</tr>
 			<tr>
@@ -31,6 +32,16 @@
 				</td>
 				{{#unless (eq system.causeDamage.boolean false)}}
 					<td><input name='system.damage.roll' type='text' value='{{system.damage.roll}}' data-type='String' /></td>
+					<td>
+						<select name='system.statusBonus.name'>
+							{{#select system.statusBonus.name}}
+								<option value='vigor'>{{localize 'ASTRO.stat.vigor'}}</option>
+								<option value='grace'>{{localize 'ASTRO.stat.grace'}}</option>
+								<option value='mind'>{{localize 'ASTRO.stat.mind'}}</option>
+								<option value='tech'>{{localize 'ASTRO.stat.tech'}}</option>
+							{{/select}}
+						</select>
+					</td>
 				{{/unless}}
 			</tr>
 		</table>
