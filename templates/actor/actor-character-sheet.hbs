@@ -5,15 +5,15 @@
 		<h1><input class="char-data-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize "ASTRO.actor.name"}}" /></h1>
 		<h1><input class="char-data-origin" name="system.origin.name.value" type="text" value="{{system.origin.name.value}}" placeholder="{{localize "ASTRO.actor.origin"}}" /></h1>
 		</div>
-		{{> "systems/astroprisma/templates/actor/part/character/char-hyperserum.hbs"}}
+		{{> "systems/astroprisma/templates/actor/part/character/char/char-hyperserum.hbs"}}
 
 	</header>
 		<section class="astro-section">
-			{{> "systems/astroprisma/templates/actor/part/character/char-summary.hbs"}}
-			{{> "systems/astroprisma/templates/actor/part/character/char-favor.hbs"}}
+			{{> "systems/astroprisma/templates/actor/part/character/char/char-summary.hbs"}}
+			{{> "systems/astroprisma/templates/actor/part/character/char/char-favor.hbs"}}
 		</section>
 		<section class="astro-sidebar flexrow">
-			{{> "systems/astroprisma/templates/actor/part/character/char-status.hbs"}}
-			{{> "systems/astroprisma/templates/actor/part/character/char-tabs.hbs"}}
+			{{> "systems/astroprisma/templates/actor/part/character/char/char-status.hbs"}}
+			{{> "systems/astroprisma/templates/actor/part/character/char/char-tabs.hbs"}}
 		</section>
 </form>
