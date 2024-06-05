@@ -38,7 +38,9 @@ export class AstroprismaActorSheet extends ActorSheet {
 		html.on('click', '.item-toggle-equip', this._equipItem.bind(this))
 		html.on('click', '.item-toggle-unequip', this._unequipItem.bind(this))
 
-		html.find('.item-display').on('click', this._onItemDisplayInfo.bind(this))
+		html.on('click', '.item-folder-open', this._openFolder.bind(this))
+		html.on('click', '.item-folder-close', this._closeFolder.bind(this))
+
 		html.find('.item-edit').on('click', this._onItemEdit.bind(this))
 		html.on('click', '.rollable', this._onRoll.bind(this))
 
@@ -180,6 +182,20 @@ export class AstroprismaActorSheet extends ActorSheet {
 		await item.update({ 'system.eqquiped.boolean': false })
 	}
 
+	async _openFolder(event) {
+		event.preventDefault()
+		let itemId = event.currentTarget.closest('.item').dataset.itemId
+		let item = this.actor.items.get(itemId)
+		await item.update({ 'system.openFolder.boolean': true })
+	}
+
+	async _closeFolder(event) {
+		event.preventDefault()
+		let itemId = event.currentTarget.closest('.item').dataset.itemId
+		let item = this.actor.items.get(itemId)
+		await item.update({ 'system.openFolder.boolean': false })
+	}
+
 	_onRoll(event) {
 		event.preventDefault()
 		const element = event.currentTarget
@@ -207,14 +223,6 @@ export class AstroprismaActorSheet extends ActorSheet {
 			})
 			return roll
 		}
-	}
-
-	_onItemDisplayInfo(event) {
-		event.preventDefault()
-		event.stopPropagation()
-		let section = event.currentTarget.closest('.item')
-		let editor = $(section).find('.item-info')
-		editor.toggleClass('invisible')
 	}
 
 	_onItemEdit(event) {

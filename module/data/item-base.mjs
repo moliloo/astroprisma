@@ -9,6 +9,10 @@ export default class AstroprismaItemBase extends foundry.abstract.TypeDataModel 
 			boolean: new fields.BooleanField({initial: false})
 		})
 
+		schema.openFolder = new fields.SchemaField({
+			boolean: new fields.BooleanField({initial: false})
+		})
+
 		return schema
 	}
 }
