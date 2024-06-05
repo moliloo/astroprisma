@@ -10,7 +10,6 @@
 					<span></span>
 				</div>
 				<ol class='items-list'>
-
 					<li class='weapon-item item flexcol' data-item-id='{{item._id}}'>
 						<div class='flexrow item-row'>
 							<img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
@@ -38,17 +37,25 @@
 										<i class='fa-solid fa-toggle-off'></i>
 									</a>
 								{{/if}}
-
-								<a class='item-control item-display' title='{{localize "ASTRO.actor.itemOption.info"}}'>
-									<i class='fa-solid fa-folder'></i>
-								</a>
+								{{#if system.openFolder.boolean}}
+									<a class='item-control item-folder-close' title='{{localize "ASTRO.actor.itemOption.info"}}'>
+										<i class='fa-solid fa-folder-open'></i>
+									</a>
+								{{else}}
+									<a class='item-control item-folder-open' title='{{localize "ASTRO.actor.itemOption.info"}}'>
+										<i class='fa-solid fa-folder'></i>
+									</a>
+								{{/if}}
 							</div>
 						</div>
-						<div class='item-info invisible'>
-							{{{system.description}}}
+						<div class='item-info'>
+							{{#if system.openFolder.boolean}}
+								{{{system.description}}}
+							{{else}}
+								<span></span>
+							{{/if}}
 						</div>
 					</li>
-
 				</ol>
 			{{/if}}
 		{{/each}}
@@ -96,14 +103,23 @@
 										<i class='fa-solid fa-toggle-off'></i>
 									</a>
 								{{/if}}
-
-								<a class='item-control item-display' title='{{localize "ASTRO.actor.itemOption.info"}}'>
-									<i class='fa-solid fa-folder'></i>
-								</a>
+								{{#if system.openFolder.boolean}}
+									<a class='item-control item-folder-close' title='{{localize "ASTRO.actor.itemOption.info"}}'>
+										<i class='fa-solid fa-folder-open'></i>
+									</a>
+								{{else}}
+									<a class='item-control item-folder-open' title='{{localize "ASTRO.actor.itemOption.info"}}'>
+										<i class='fa-solid fa-folder'></i>
+									</a>
+								{{/if}}
 							</div>
 						</div>
-						<div class='item-info invisible'>
-							{{{system.description}}}
+						<div class='item-info'>
+							{{#if system.openFolder.boolean}}
+								{{{system.description}}}
+							{{else}}
+								<span></span>
+							{{/if}}
 						</div>
 					</li>
 				</ol>
