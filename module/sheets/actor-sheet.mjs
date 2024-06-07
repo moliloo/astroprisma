@@ -124,7 +124,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 	async _onItemCreate(event) {
 		event.preventDefault()
 		let element = event.currentTarget
-		if ((element.dataset.type === 'weapon')) {
+		if (element.dataset.type === 'weapon') {
 			let itemData = {
 				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
 				type: element.dataset.type,
@@ -142,7 +142,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 			}
 			return await Item.create(itemData, { parent: this.actor })
 		}
-		if ((element.dataset.type === 'hack')) {
+		if (element.dataset.type === 'hack') {
 			let itemData = {
 				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
 				type: element.dataset.type,
@@ -202,17 +202,24 @@ export class AstroprismaActorSheet extends ActorSheet {
 		const dataset = element.dataset
 		console.log(event)
 
-		if (dataset.rollType) {
-			if (dataset.rollType == 'item') {
-				const itemId = element.closest('.item').dataset.itemId
-				const item = this.actor.items.get(itemId)
-				if (item) return item.roll()
-			}
+		if (dataset.rollType == 'attribute') {
+			let damage = `1d10 + @attributes.${dataset.status}.value[${game.i18n.localize(`ASTRO.stat.${dataset.status}`)}]`
+			let roll = new Roll(damage, this.actor.getRollData())
+			roll.toMessage({
+				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+				rollMode: game.settings.get('core', 'rollMode'),
+			})
+			return roll
 		}
 
-		// Handle rolls that supply the formula directly.
-		if (dataset.roll) {
-			let label =`<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
+		if (dataset.rollType == 'item') {
+			const itemId = element.closest('.item').dataset.itemId
+			const item = this.actor.items.get(itemId)
+			if (item) return item.roll()
+		}
+
+		if (dataset.rollType == 'weapon') {
+			let label = `<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
 			let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
 			let roll = new Roll(damage, this.actor.getRollData())
 			roll.toMessage({
@@ -223,14 +230,27 @@ export class AstroprismaActorSheet extends ActorSheet {
 			return roll
 		}
 
-		if (dataset.rollType == "attribute") {
-			let damage = `1d10 + @attributes.${dataset.status}.value[${game.i18n.localize(`ASTRO.stat.${dataset.status}`)}]`
-			let roll = new Roll(damage, this.actor.getRollData())
-			roll.toMessage({
-				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				rollMode: game.settings.get('core', 'rollMode'),
-			})
-			return roll
+		if (dataset.rollType == 'hack') {
+			let currentEnergy = this.actor.system.values.energy.value
+			if (currentEnergy >= 0) {
+				if (currentEnergy - dataset.energyCost >= 0) {
+					this.actor.update({ 'system.values.energy.value': this.actor.system.values.energy.value - dataset.energyCost })
+
+					let label = `<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
+					let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
+					let roll = new Roll(damage, this.actor.getRollData())
+					roll.toMessage({
+						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+						flavor: label,
+						rollMode: game.settings.get('core', 'rollMode'),
+					})
+					return roll
+				} else {
+					ui.notifications.error(game.i18n.localize('ASTRO.ui.notifications.lowStamina'))
+				}
+			} else {
+				ui.notifications.error('ASTRO.ui.notifications.noStamina')
+			}
 		}
 	}
 

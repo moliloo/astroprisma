@@ -41,5 +41,7 @@
 	"ASTRO.actor.itemOption.info": "Click and see the item information",
 	"ASTRO.actor.itemOption.roll": "Click to roll the damage",
 	"ASTRO.actor.itemOption.editItem": "Edit Item",
-	"ASTRO.actor.itemOption.deleteItem": "Delete Item"
+	"ASTRO.actor.itemOption.deleteItem": "Delete Item",
+	"ASTRO.ui.notifications.noStamina": "There's no stamina to use this",
+	"ASTRO.ui.notifications.lowStamina": "Insufficient stamina to use this"
 }
