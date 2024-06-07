@@ -200,9 +200,8 @@ export class AstroprismaActorSheet extends ActorSheet {
 		event.preventDefault()
 		const element = event.currentTarget
 		const dataset = element.dataset
-		console.log(dataset)
+		console.log(event)
 
-		// Handle item rolls.
 		if (dataset.rollType) {
 			if (dataset.rollType == 'item') {
 				const itemId = element.closest('.item').dataset.itemId
@@ -214,11 +213,21 @@ export class AstroprismaActorSheet extends ActorSheet {
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
 			let label =`<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
-			let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${dataset.bonus.toUpperCase()}]`
+			let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
 			let roll = new Roll(damage, this.actor.getRollData())
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: label,
+				rollMode: game.settings.get('core', 'rollMode'),
+			})
+			return roll
+		}
+
+		if (dataset.rollType == "attribute") {
+			let damage = `1d10 + @attributes.${dataset.status}.value[${game.i18n.localize(`ASTRO.stat.${dataset.status}`)}]`
+			let roll = new Roll(damage, this.actor.getRollData())
+			roll.toMessage({
+				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				rollMode: game.settings.get('core', 'rollMode'),
 			})
 			return roll
