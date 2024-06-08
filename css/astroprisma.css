@@ -122,6 +122,16 @@
   box-shadow: 0 0 5px #f13d58;
   border: 1px solid #f13d58;
 }
+.astroprisma.sheet.actor .astro-section .values .values-div .input-readonly {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+  opacity: 80%;
+}
+.astroprisma.sheet.actor .astro-section .values .values-div .input-readonly:focus {
+  box-shadow: none;
+  border: none;
+}
 .astroprisma.sheet.actor .astro-section .values .values-div > h2 {
   font-weight: bold;
 }
