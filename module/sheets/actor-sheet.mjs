@@ -232,7 +232,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 
 		if (dataset.rollType == 'hack') {
 			let currentEnergy = this.actor.system.values.energy.value
-			if (currentEnergy >= 0) {
+			if (currentEnergy > 0) {
 				if (currentEnergy - dataset.energyCost >= 0) {
 					this.actor.update({ 'system.values.energy.value': this.actor.system.values.energy.value - dataset.energyCost })
 
@@ -249,7 +249,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 					ui.notifications.error(game.i18n.localize('ASTRO.ui.notifications.lowStamina'))
 				}
 			} else {
-				ui.notifications.error('ASTRO.ui.notifications.noStamina')
+				ui.notifications.error(game.i18n.localize('ASTRO.ui.notifications.noStamina'))
 			}
 		}
 	}
