@@ -47,6 +47,10 @@ Hooks.once('ready', function () {
 	Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot))
 })
 
+Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+	return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+
 async function createItemMacro(data, slot) {
 	// First, determine if this is a valid owned item.
 	if (data.type !== 'Item') return
