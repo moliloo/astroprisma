@@ -12,6 +12,14 @@ export default class AstroprismaItemBase extends foundry.abstract.TypeDataModel 
 			name: new fields.StringField({ required: true, blank: true }),
 		})
 
+		schema.causeDamage = new fields.SchemaField({
+			boolean: new fields.BooleanField({initial: false})
+		})
+
+		schema.damage = new fields.SchemaField({
+			roll: new fields.StringField({ required: true, blank: true }),
+		})
+
 		return schema
 	}
 }
