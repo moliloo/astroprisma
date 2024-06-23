@@ -6,7 +6,7 @@
 		"npc": {}
 	},
 	"Item": {
-		"types": ["weapon", "hack"],
+		"types": ["weapon", "hack", "item"],
 		"HTMLField": ["description"],
 		"weapon": {},
 		"hack": {}
