@@ -63,6 +63,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 
 		new ContextMenu(html, '.weapon-item', this.itemContextMenu)
 		new ContextMenu(html, '.hack-item', this.itemContextMenu)
+		new ContextMenu(html, '.item-item', this.itemContextMenu)
 	}
 
 	itemContextMenu = [
@@ -190,6 +191,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 					},
 				},
 			}
+			return await Item.create(itemData, { parent: this.actor })
 		}
 	}
 
