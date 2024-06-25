@@ -88,23 +88,25 @@ export class AstroprismaActorSheet extends ActorSheet {
 		// Initialize containers.
 		const weapons = []
 		const hacks = []
+		const items = []
 
 		// Iterate through items, allocating to containers
 		for (let i of event.items) {
 			i.img = i.img || Item.DEFAULT_ICON
-			// Append to gear.
+
 			if (i.type === 'weapon') {
 				weapons.push(i)
-			}
-			// Append to features.
-			else if (i.type === 'hack') {
+			} else if (i.type === 'hack') {
 				hacks.push(i)
+			} else if (i.type === 'item') {
+				items.push(i)
 			}
 		}
 
 		// Assign and return
 		event.weapons = weapons
 		event.hacks = hacks
+		event.items = items
 	}
 
 	async _removeHyperdriveValue(event) {
@@ -165,6 +167,29 @@ export class AstroprismaActorSheet extends ActorSheet {
 				},
 			}
 			return await Item.create(itemData, { parent: this.actor })
+		}
+		if (element.dataset.type === 'item') {
+			let itemData = {
+				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
+				type: element.dataset.type,
+				system: {
+					damage: {
+						roll: '0',
+					},
+					causeDamage: {
+						boolean: false,
+					},
+					statusBonus: {
+						name: 'vigor',
+					},
+					price: {
+						value: 0,
+					},
+					type: {
+						name: 'consumable',
+					},
+				},
+			}
 		}
 	}
 
