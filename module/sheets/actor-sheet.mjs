@@ -169,26 +169,14 @@ export class AstroprismaActorSheet extends ActorSheet {
 			}
 			return await Item.create(itemData, { parent: this.actor })
 		}
-		if (element.dataset.type === 'item') {
+		if (element.dataset.type === 'consumable') {
 			let itemData = {
 				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
 				type: element.dataset.type,
 				system: {
-					damage: {
-						roll: '0',
-					},
-					causeDamage: {
-						boolean: false,
-					},
-					statusBonus: {
-						name: 'vigor',
-					},
 					price: {
 						value: 0,
-					},
-					type: {
-						name: 'consumable',
-					},
+					}
 				},
 			}
 			return await Item.create(itemData, { parent: this.actor })

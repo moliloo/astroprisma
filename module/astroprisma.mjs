@@ -30,8 +30,9 @@ Hooks.once('init', function () {
 		npc: models.AstroprismaNpc,
 	}
 	CONFIG.Item.dataModels = {
-	   weapon: models.AstroprismaWeapon,
-		hack: models.AstroprismaHack
+		weapon: models.AstroprismaWeapon,
+		hack: models.AstroprismaHack,
+		consumable: models.AstroprismaConsumable,
 	}
 
 	Items.unregisterSheet('core', ItemSheet)
@@ -47,9 +48,9 @@ Hooks.once('ready', function () {
 	Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot))
 })
 
-Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
-	return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
-});
+Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
+	return arg1 == arg2 ? options.fn(this) : options.inverse(this)
+})
 
 async function createItemMacro(data, slot) {
 	// First, determine if this is a valid owned item.

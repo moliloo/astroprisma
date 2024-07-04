@@ -6,9 +6,10 @@
 		"npc": {}
 	},
 	"Item": {
-		"types": ["weapon", "hack", "item"],
+		"types": ["weapon", "hack", "consumable"],
 		"HTMLField": ["description"],
 		"weapon": {},
-		"hack": {}
+		"hack": {},
+		"consumable": {}
 	}
 }
