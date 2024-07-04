@@ -176,7 +176,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 				system: {
 					price: {
 						value: 0,
-					}
+					},
 				},
 			}
 			return await Item.create(itemData, { parent: this.actor })
@@ -253,6 +253,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 
 					let label = `<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
 					let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
+
 					let roll = new Roll(damage, this.actor.getRollData())
 					roll.toMessage({
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),

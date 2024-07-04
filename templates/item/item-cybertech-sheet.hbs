@@ -1,0 +1,41 @@
+<form class='{{cssClass}}' autocomplete='off'>
+	<header class='sheet-header'>
+		<img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='64' width='64' />
+		<h1><input name='name' type='text' value='{{item.name}}' placeholder='Name' /></h1>
+	</header>
+	<div class='sheet-content'>
+		<table>
+			<tr>
+				<th>{{localize 'ASTRO.hack.cost.name'}}</th>
+				<th>{{localize 'ASTRO.hack.theresDamage'}}</th>
+				{{#unless (eq system.causeDamage.boolean false)}}
+					<th>{{localize 'ASTRO.weapon.damage'}}</th>
+					<th>{{localize 'ASTRO.weapon.stats'}}</th>
+				{{/unless}}
+			</tr>
+			<tr>
+				<td>
+					<input name='system.energyCost.value' type='number' value='{{system.energyCost.value}}' data-type='Number' />
+
+				</td>
+				<td>
+					<input name='system.causeDamage.boolean' type='checkbox' {{checked system.causeDamage.boolean}} />
+				</td>
+				{{#unless (eq system.causeDamage.boolean false)}}
+					<td><input name='system.damage.roll' type='text' value='{{system.damage.roll}}' data-type='String' /></td>
+					<td>
+						<select name='system.statusBonus.name'>
+							{{#select system.statusBonus.name}}
+								<option value='vigor'>{{localize 'ASTRO.stat.vigor'}}</option>
+								<option value='grace'>{{localize 'ASTRO.stat.grace'}}</option>
+								<option value='mind'>{{localize 'ASTRO.stat.mind'}}</option>
+								<option value='tech'>{{localize 'ASTRO.stat.tech'}}</option>
+							{{/select}}
+						</select>
+					</td>
+				{{/unless}}
+			</tr>
+		</table>
+		{{editor enrichedBiography system.description target='system.description' owner=owner button=true editable=editable}}
+	</div>
+</form>

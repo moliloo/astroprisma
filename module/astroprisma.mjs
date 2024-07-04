@@ -33,6 +33,14 @@ Hooks.once('init', function () {
 		weapon: models.AstroprismaWeapon,
 		hack: models.AstroprismaHack,
 		consumable: models.AstroprismaConsumable,
+		starshipPart: models.AstroprismaStarshipPart,
+		grenade: models.AstroprismaGrenade,
+		narcobiotic: models.AstroprismaNarcobiotic,
+		mod: models.AstroprismaMod,
+		drone: models.AstroprismaDrone,
+		armor: models.AstroprismaArmor,
+		cybertech: models.AstroprismaCybertech,
+		origin: models.AstroprismaOrigin
 	}
 
 	Items.unregisterSheet('core', ItemSheet)
