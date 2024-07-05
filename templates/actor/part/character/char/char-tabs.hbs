@@ -1,15 +1,11 @@
 <section class="tabs">
 <nav class="tab-nav flexrow" data-group="primary">
-   <a data-tab="actions">{{localize "ASTRO.actor.tab.actions"}}</a>
    <a data-tab="weapons">{{localize "ASTRO.actor.tab.weapons"}}</a>
    <a data-tab="inventory">{{localize "ASTRO.actor.tab.inventory"}}</a>
    <a data-tab="biography">{{localize "ASTRO.actor.tab.biography"}}</a>
    <a data-tab="effects">{{localize "ASTRO.actor.tab.effects"}}</a>
 </nav>
 <div class="tab-select flexcol">
-   <div class="tab" data-group="primary"
-         data-tab="actions">{{> "systems/astroprisma/templates/actor/part/character/tab/tab-actions.hbs"}}
-    </div>  
     <div class="tab" data-group="primary"
          data-tab="weapons">{{> "systems/astroprisma/templates/actor/part/character/tab/tab-weapons.hbs"}}
     </div>
@@ -22,6 +18,5 @@
     <div class="tab" data-group="primary"
          data-tab="effects">{{> "systems/astroprisma/templates/actor/part/character/tab/tab-effects.hbs"}}
     </div>
-    
 </div>
 </section>

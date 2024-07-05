@@ -1,0 +1,54 @@
+{{#each hacks as |item id|}}
+			<li class='hack-item item flexcol' data-item-id='{{item._id}}'>
+				<div class='flexrow item-row'>
+					<img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
+					<a
+						title='{{localize "ASTRO.actor.itemOption.roll"}}'
+						class='rollable'
+						data-roll-type='hack'
+						data-label='{{item.name}}'
+						data-img='{{item.img}}'
+						data-roll='{{system.damage.roll}}'
+						data-bonus='{{system.statusBonus.name}}'
+						data-description='{{{system.description}}}'
+						data-energy-cost='{{system.energyCost.value}}'
+					>
+						<h4 type='text' data-type='String'>{{item.name}}</h4>
+					</a>
+					{{#if system.causeDamage.boolean}}
+						<h4 type='text' data-type='String'>
+							{{system.damage.roll}}+[<span style='text-transform: uppercase;'>{{system.statusBonus.name}}</span>]</h4>
+					{{else}}
+						<span>-</span>
+					{{/if}}
+					<h4 type='number' data-type='String'>{{system.energyCost.value}}</h4>
+					<div class='item-controls'>
+						{{#if system.eqquiped.boolean}}
+							<a class='item-control item-toggle-unequip' title='{{localize "ASTRO.actor.itemOption.unequip"}}'>
+								<i class='fa-solid fa-toggle-on'></i>
+							</a>
+						{{else}}
+							<a class='item-control item-toggle-equip' title='{{localize "ASTRO.actor.itemOption.equip"}}'>
+								<i class='fa-solid fa-toggle-off'></i>
+							</a>
+						{{/if}}
+						{{#if system.openFolder.boolean}}
+							<a class='item-control item-folder-close' title='{{localize "ASTRO.actor.itemOption.info"}}'>
+								<i class='fa-solid fa-folder-open'></i>
+							</a>
+						{{else}}
+							<a class='item-control item-folder-open' title='{{localize "ASTRO.actor.itemOption.info"}}'>
+								<i class='fa-solid fa-folder'></i>
+							</a>
+						{{/if}}
+					</div>
+				</div>
+				<div class='item-info'>
+					{{#if system.openFolder.boolean}}
+						{{{system.description}}}
+					{{else}}
+						<span></span>
+					{{/if}}
+				</div>
+			</li>
+		{{/each}}

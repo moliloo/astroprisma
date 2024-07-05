@@ -4,28 +4,30 @@
 		<h1><input name='name' type='text' value='{{item.name}}' placeholder='Name' /></h1>
 	</header>
 	<div class='sheet-content'>
-		<table>
-			<tr>
-				<th>Vigor</th>
-				<th>Grace</th>
-				<th>Mind</th>
-				<th>Tech</th>
-			</tr>
-			<tr>
-				<td>
-					<input name='system.attributes.vigor.value' type='Number' placeholder='0' value='{{system.attributes.vigor.value}}' data-dtype='Number'/>
-				</td>
-				<td>
-					<input name='system.attributes.grace.value' type='Number' placeholder='0' value='{{system.attributes.grace.value}}' data-dtype='Number'/>
-				</td>
-				<td>
-					<input name='system.attributes.mind.value' type='Number' placeholder='0' value='{{system.attributes.mind.value}}' data-dtype='Number'/>
-				</td>
-				<td>
-					<input name='system.attributes.tech.value' type='Number' placeholder='0' value='{{system.attributes.tech.value}}' data-dtype='Number'/>
-				</td>
-			</tr>
-		</table>
+
+		<ol>
+			<li>
+				<h2>Vigor</h2>
+				<input name='system.attributes.vigor.value' type='Number' placeholder='0' value='{{system.attributes.vigor.value}}' data-dtype='Number' />
+			</li>
+			<li>
+				<h2>Grace</h2>
+				<input name='system.attributes.grace.value' type='Number' placeholder='0' value='{{system.attributes.grace.value}}' data-dtype='Number' />
+			</li>
+			<li>
+				<h2>Mind</h2>
+				<input name='system.attributes.mind.value' type='Number' placeholder='0' value='{{system.attributes.mind.value}}' data-dtype='Number' />
+			</li>
+			<li>
+				<h2>Tech</h2>
+				<input name='system.attributes.tech.value' type='Number' placeholder='0' value='{{system.attributes.tech.value}}' data-dtype='Number' />
+			</li>
+		</ol>
+		<div>
 		{{editor enrichedBiography system.description target='system.description' owner=owner button=true editable=editable}}
+		</div>
+		<ol>
+
+		</ol>
 	</div>
 </form>

@@ -60,6 +60,14 @@ Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
 	return arg1 == arg2 ? options.fn(this) : options.inverse(this)
 })
 
+Handlebars.registerHelper('ifEach', function(collection, condition, options) {
+	if (condition && collection.length > 0) {
+		return options.fn({ items: collection });
+	 } else {
+		return options.inverse(this);
+	 }
+ });
+
 async function createItemMacro(data, slot) {
 	// First, determine if this is a valid owned item.
 	if (data.type !== 'Item') return
