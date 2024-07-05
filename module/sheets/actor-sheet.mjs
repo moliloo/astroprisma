@@ -247,20 +247,32 @@ export class AstroprismaActorSheet extends ActorSheet {
 
 		if (dataset.rollType == 'hack') {
 			let currentEnergy = this.actor.system.values.energy.value
+			const itemId = element.closest('.item').dataset.itemId
+			const item = this.actor.items.get(itemId)
+
 			if (currentEnergy > 0) {
 				if (currentEnergy - dataset.energyCost >= 0) {
 					this.actor.update({ 'system.values.energy.value': this.actor.system.values.energy.value - dataset.energyCost })
 
 					let label = `<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
-					let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
+					let damage = ``
 
-					let roll = new Roll(damage, this.actor.getRollData())
-					roll.toMessage({
-						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-						flavor: label,
-						rollMode: game.settings.get('core', 'rollMode'),
-					})
-					return roll
+					if (dataset.causeDamage == 'true') {
+						if (dataset.bonus === 'none') {
+							damage = `${dataset.roll}`
+						} else {
+							damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
+						}
+						let roll = new Roll(damage, this.actor.getRollData())
+						roll.toMessage({
+							speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+							flavor: label,
+							rollMode: game.settings.get('core', 'rollMode'),
+						})
+						return roll
+					} else if (dataset.causeDamage == 'false') {
+						return item.roll()
+					}
 				} else {
 					ui.notifications.error(game.i18n.localize('ASTRO.ui.notifications.lowStamina'))
 				}
