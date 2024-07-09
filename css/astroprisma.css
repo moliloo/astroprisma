@@ -231,6 +231,7 @@
   border: 1px solid black;
   border-radius: 3px;
   font-size: 12px;
+  height: 247px;
 }
 .astroprisma.sheet.actor .astro-sidebar .tabs .tab-nav {
   display: flex;
@@ -240,6 +241,9 @@
   background-color: black;
   color: white;
   text-transform: uppercase;
+}
+.astroprisma.sheet.actor .astro-sidebar .tabs .tab-select {
+  overflow-y: auto;
 }
 .astroprisma.sheet.actor .astro-sidebar .tabs .items-list .invisible {
   display: none;

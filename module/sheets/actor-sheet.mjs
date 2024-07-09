@@ -63,6 +63,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 
 		new ContextMenu(html, '.weapon-item', this.itemContextMenu)
 		new ContextMenu(html, '.hack-item', this.itemContextMenu)
+		new ContextMenu(html, '.cybertech-item', this.itemContextMenu)
 		new ContextMenu(html, '.item-item', this.itemContextMenu)
 	}
 
@@ -90,6 +91,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 		const weapons = []
 		const hacks = []
 		const items = []
+		const cybertechs = []
 
 		// Iterate through items, allocating to containers
 		for (let i of event.items) {
@@ -99,6 +101,8 @@ export class AstroprismaActorSheet extends ActorSheet {
 				weapons.push(i)
 			} else if (i.type === 'hack') {
 				hacks.push(i)
+			} else if (i.type === 'cybertech') {
+				cybertechs.push(i)
 			} else if (i.type === 'item') {
 				items.push(i)
 			}
@@ -107,6 +111,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 		// Assign and return
 		event.weapons = weapons
 		event.hacks = hacks
+		event.cybertechs = cybertechs
 		event.items = items
 	}
 
@@ -132,15 +137,9 @@ export class AstroprismaActorSheet extends ActorSheet {
 				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
 				type: element.dataset.type,
 				system: {
-					damage: {
-						roll: '1d6',
-					},
-					price: {
-						value: 0,
-					},
-					statusBonus: {
-						name: 'vigor',
-					},
+					damage: '1d6',
+					price: 0,
+					statusBonus: 'vigor',
 				},
 			}
 			return await Item.create(itemData, { parent: this.actor })
@@ -150,21 +149,25 @@ export class AstroprismaActorSheet extends ActorSheet {
 				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
 				type: element.dataset.type,
 				system: {
-					damage: {
-						roll: '0',
-					},
-					causeDamage: {
-						boolean: false,
-					},
-					energyCost: {
-						value: 0,
-					},
-					eqquiped: {
-						boolean: false,
-					},
-					statusBonus: {
-						name: 'mind',
-					},
+					damage: '0',
+					causeDamage: false,
+					energyCost: 0,
+					eqquiped: false,
+					statusBonus: 'mind',
+				},
+			}
+			return await Item.create(itemData, { parent: this.actor })
+		}
+		if (element.dataset.type === 'cybertech') {
+			let itemData = {
+				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
+				type: element.dataset.type,
+				system: {
+					damage: '0',
+					causeDamage: false,
+					energyCost: 0,
+					eqquiped: false,
+					statusBonus: 'mind',
 				},
 			}
 			return await Item.create(itemData, { parent: this.actor })
@@ -174,9 +177,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
 				type: element.dataset.type,
 				system: {
-					price: {
-						value: 0,
-					},
+					price: 0,
 				},
 			}
 			return await Item.create(itemData, { parent: this.actor })

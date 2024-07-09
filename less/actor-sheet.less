@@ -229,7 +229,6 @@
 				}
 			}
 		}
-
 		.tabs {
 			display: grid;
 			grid-template-rows: 1fr 6fr;
@@ -237,6 +236,7 @@
 			border: 1px solid black;
 			border-radius: 3px;
 			font-size: 12px;
+			height: 247px;
 			.tab-nav {
 				display: flex;
 				flex-direction: row;
@@ -246,6 +246,9 @@
 				background-color: black;
 				color: white;
 				text-transform: uppercase;
+			}
+			.tab-select {
+				overflow-y: auto;
 			}
 			.items-list {
 				.invisible {
