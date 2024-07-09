@@ -1,7 +1,8 @@
 import { AstroprismaActor } from './documents/actor.mjs'
 import { AstroprismaItem } from './documents/item.mjs'
 
-import { AstroprismaActorSheet } from './sheets/actor-sheet.mjs'
+import { AstroprismaCharacterSheet } from './sheets/actor/character-sheet.mjs'
+import { AstroprismaNpcSheet } from './sheets/actor/npc-sheet.mjs'
 import { AstroprismaItemSheet } from './sheets/item-sheet.mjs'
 
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs'
@@ -16,6 +17,8 @@ Hooks.once('init', function () {
 	game.astroprisma = {
 		AstroprismaActor,
 		AstroprismaItem,
+		AstroprismaCharacterSheet,
+		AstroprismaNpcSheet,
 		rollItemMacro,
 	}
 
@@ -40,14 +43,15 @@ Hooks.once('init', function () {
 		drone: models.AstroprismaDrone,
 		armor: models.AstroprismaArmor,
 		cybertech: models.AstroprismaCybertech,
-		origin: models.AstroprismaOrigin
+		origin: models.AstroprismaOrigin,
 	}
 
 	Items.unregisterSheet('core', ItemSheet)
 	Items.registerSheet('astroprisma', AstroprismaItemSheet, { makeDefault: true })
 
 	Actors.unregisterSheet('core', ActorSheet)
-	Actors.registerSheet('astroprisma', AstroprismaActorSheet, { makeDefault: true })
+	Actors.registerSheet('astroprisma', AstroprismaCharacterSheet, { types: ['character'], makeDefault: true })
+	Actors.registerSheet('astroprisma', AstroprismaNpcSheet, { types: ['npc'], makeDefault: true })
 
 	preloadHandlebarsTemplates()
 })
@@ -60,13 +64,13 @@ Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
 	return arg1 == arg2 ? options.fn(this) : options.inverse(this)
 })
 
-Handlebars.registerHelper('ifEach', function(collection, condition, options) {
+Handlebars.registerHelper('ifEach', function (collection, condition, options) {
 	if (condition && collection.length > 0) {
-		return options.fn({ items: collection });
-	 } else {
-		return options.inverse(this);
-	 }
- });
+		return options.fn({ items: collection })
+	} else {
+		return options.inverse(this)
+	}
+})
 
 async function createItemMacro(data, slot) {
 	// First, determine if this is a valid owned item.

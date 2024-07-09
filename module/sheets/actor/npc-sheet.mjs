@@ -1,17 +1,16 @@
-import { astroprisma } from '../helpers/config.mjs'
+import { astroprisma } from '../../helpers/config.mjs'
 
-export class AstroprismaActorSheet extends ActorSheet {
+export class AstroprismaNpcSheet extends ActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			classes: ['astroprisma', 'sheet', 'actor'],
-			width: 630,
-			height: 670,
-			tabs: [{ navSelector: '.tab-nav', contentSelector: '.tab-select', initial: 'description' }],
+			classes: ['astroprisma', 'sheet', 'actor', 'npc'],
+			width: 430,
+			height: 470,
 		})
 	}
 
 	get template() {
-		return `systems/astroprisma/templates/actor/actor-${this.actor.type}-sheet.hbs`
+		return `systems/astroprisma/templates/actor/actor-npc-sheet.hbs`
 	}
 
 	getData() {
@@ -124,6 +123,15 @@ export class AstroprismaActorSheet extends ActorSheet {
 					break
 				case 'grenade':
 					grenades.push(i)
+					break
+				case 'mod':
+					mods.push(i)
+					break
+				case 'narcobiotic':
+					narcobiotics.push(i)
+					break
+				case 'starshipParts':
+					starshipParts.push(i)
 					break
 				default:
 					console.warn(`Tipo inesperado: ${i.type}`)

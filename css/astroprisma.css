@@ -1,16 +1,16 @@
-.astroprisma.sheet.actor .astro-header {
+.astroprisma.sheet.actor.character .astro-header {
   display: grid;
   grid-template-columns: 1fr 2fr 2fr;
   gap: 10px;
   margin-top: 10px;
 }
-.astroprisma.sheet.actor .astro-header .char-img {
+.astroprisma.sheet.actor.character .astro-header .char-img {
   height: 140px;
   width: 120px;
   object-fit: cover;
   border-radius: 3px;
 }
-.astroprisma.sheet.actor .astro-header .char-data {
+.astroprisma.sheet.actor.character .astro-header .char-data {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -18,26 +18,26 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.astroprisma.sheet.actor .astro-header .char-data .char-data-name {
+.astroprisma.sheet.actor.character .astro-header .char-data .char-data-name {
   border: none;
   text-align: center;
   background: rgba(130, 130, 130, 0.15);
   height: 50px;
 }
-.astroprisma.sheet.actor .astro-header .char-data .char-data-origin {
+.astroprisma.sheet.actor.character .astro-header .char-data .char-data-origin {
   border: none;
   text-align: center;
   background: rgba(130, 130, 130, 0.15);
   height: 50px;
 }
-.astroprisma.sheet.actor .astro-header .char-data h1 {
+.astroprisma.sheet.actor.character .astro-header .char-data h1 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor .astro-header .hyperserum {
+.astroprisma.sheet.actor.character .astro-header .hyperserum {
   gap: 10px;
 }
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-hyperdrive {
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-hyperdrive {
   display: flex;
   gap: 10px;
   color: black;
@@ -48,16 +48,16 @@
   align-items: center;
   justify-content: center;
 }
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-hyperdrive h1,
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-hyperdrive h2,
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-hyperdrive h3 {
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-hyperdrive h1,
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-hyperdrive h2,
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-hyperdrive h3 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-hyperdrive > h2 {
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-hyperdrive > h2 {
   font-weight: bold;
 }
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum {
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum {
   display: flex;
   gap: 20px;
   color: black;
@@ -68,30 +68,30 @@
   align-items: center;
   justify-content: center;
 }
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum h1,
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum h2,
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum h3 {
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum h1,
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum h2,
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum h3 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum .hyperserum-serum-input {
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum .hyperserum-serum-input {
   width: 10ch;
   border: none;
   text-align: center;
   background: rgba(130, 130, 130, 0.15);
 }
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum .hyperserum-serum-input:focus {
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum .hyperserum-serum-input:focus {
   box-shadow: 0 0 5px #f13d58;
   border: 1px solid #f13d58;
 }
-.astroprisma.sheet.actor .astro-header .hyperserum .hyperserum-serum > h2 {
+.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum > h2 {
   font-weight: bold;
 }
-.astroprisma.sheet.actor .astro-section {
+.astroprisma.sheet.actor.character .astro-section {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.astroprisma.sheet.actor .astro-section .values {
+.astroprisma.sheet.actor.character .astro-section .values {
   display: flex;
   gap: 20px;
   color: black;
@@ -101,44 +101,44 @@
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-.astroprisma.sheet.actor .astro-section .values .values-div {
+.astroprisma.sheet.actor.character .astro-section .values .values-div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.astroprisma.sheet.actor .astro-section .values .values-div h1,
-.astroprisma.sheet.actor .astro-section .values .values-div h2,
-.astroprisma.sheet.actor .astro-section .values .values-div h3 {
+.astroprisma.sheet.actor.character .astro-section .values .values-div h1,
+.astroprisma.sheet.actor.character .astro-section .values .values-div h2,
+.astroprisma.sheet.actor.character .astro-section .values .values-div h3 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor .astro-section .values .values-div .values-div-input {
+.astroprisma.sheet.actor.character .astro-section .values .values-div .values-div-input {
   width: 3ch;
   border: none;
   text-align: center;
   background: rgba(130, 130, 130, 0.15);
 }
-.astroprisma.sheet.actor .astro-section .values .values-div .values-div-input:focus {
+.astroprisma.sheet.actor.character .astro-section .values .values-div .values-div-input:focus {
   box-shadow: 0 0 5px #f13d58;
   border: 1px solid #f13d58;
 }
-.astroprisma.sheet.actor .astro-section .values .values-div .input-readonly {
+.astroprisma.sheet.actor.character .astro-section .values .values-div .input-readonly {
   -webkit-user-select: none;
   user-select: none;
   cursor: default;
   opacity: 80%;
 }
-.astroprisma.sheet.actor .astro-section .values .values-div .input-readonly:focus {
+.astroprisma.sheet.actor.character .astro-section .values .values-div .input-readonly:focus {
   box-shadow: none;
   border: none;
 }
-.astroprisma.sheet.actor .astro-section .values .values-div > h2 {
+.astroprisma.sheet.actor.character .astro-section .values .values-div > h2 {
   font-weight: bold;
 }
-.astroprisma.sheet.actor .astro-section .values .values-div > h2.lighter {
+.astroprisma.sheet.actor.character .astro-section .values .values-div > h2.lighter {
   font-weight: lighter;
 }
-.astroprisma.sheet.actor .astro-section .favor {
+.astroprisma.sheet.actor.character .astro-section .favor {
   display: flex;
   gap: 20px;
   color: black;
@@ -148,42 +148,42 @@
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-.astroprisma.sheet.actor .astro-section .favor .favor-div {
+.astroprisma.sheet.actor.character .astro-section .favor .favor-div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.astroprisma.sheet.actor .astro-section .favor .favor-div h2,
-.astroprisma.sheet.actor .astro-section .favor .favor-div h3 {
+.astroprisma.sheet.actor.character .astro-section .favor .favor-div h2,
+.astroprisma.sheet.actor.character .astro-section .favor .favor-div h3 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor .astro-section .favor .favor-div .favor-div-input {
+.astroprisma.sheet.actor.character .astro-section .favor .favor-div .favor-div-input {
   width: 5ch;
   border: none;
   text-align: center;
   background: rgba(130, 130, 130, 0.15);
 }
-.astroprisma.sheet.actor .astro-section .favor .favor-div .favor-div-input:focus {
+.astroprisma.sheet.actor.character .astro-section .favor .favor-div .favor-div-input:focus {
   box-shadow: 0 0 5px #f13d58;
   border: 1px solid #f13d58;
 }
-.astroprisma.sheet.actor .astro-section .favor .favor-div > h3 {
+.astroprisma.sheet.actor.character .astro-section .favor .favor-div > h3 {
   padding-top: 5px;
 }
-.astroprisma.sheet.actor .astro-sidebar {
+.astroprisma.sheet.actor.character .astro-sidebar {
   margin-bottom: 20px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 20px;
 }
-.astroprisma.sheet.actor .astro-sidebar .attributes {
+.astroprisma.sheet.actor.character .astro-sidebar .attributes {
   flex-direction: column;
   gap: 10px;
   color: white;
   text-transform: uppercase;
 }
-.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div {
+.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div {
   display: flex;
   color: black;
   gap: 10px;
@@ -195,13 +195,13 @@
   justify-content: center;
   place-content: space-around;
 }
-.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div h1,
-.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div h2,
-.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div h3 {
+.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div h1,
+.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div h2,
+.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div h3 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div .attribute-div-label {
+.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div .attribute-div-label {
   background-color: white;
   width: 8ch;
   padding: 5px;
@@ -209,22 +209,22 @@
   font-weight: bold;
   text-align: center;
 }
-.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div .attribute-div-label:hover {
+.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div .attribute-div-label:hover {
   background-color: #f13d58;
   cursor: pointer;
 }
-.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div .attribute-div-input {
+.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div .attribute-div-input {
   width: 3ch;
   padding: 5px;
   border: none;
   text-align: center;
   background: #ffffff;
 }
-.astroprisma.sheet.actor .astro-sidebar .attributes .attribute-div .attribute-div-input:focus {
+.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div .attribute-div-input:focus {
   box-shadow: 0 0 5px #f13d58;
   border: 1px solid #f13d58;
 }
-.astroprisma.sheet.actor .astro-sidebar .tabs {
+.astroprisma.sheet.actor.character .astro-sidebar .tabs {
   display: grid;
   grid-template-rows: 1fr 6fr;
   grid-template-columns: 1fr;
@@ -233,7 +233,7 @@
   font-size: 12px;
   height: 247px;
 }
-.astroprisma.sheet.actor .astro-sidebar .tabs .tab-nav {
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .tab-nav {
   display: flex;
   flex-direction: row;
   padding: 10px;
@@ -242,13 +242,13 @@
   color: white;
   text-transform: uppercase;
 }
-.astroprisma.sheet.actor .astro-sidebar .tabs .tab-select {
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .tab-select {
   overflow-y: auto;
 }
-.astroprisma.sheet.actor .astro-sidebar .tabs .items-list .invisible {
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .items-list .invisible {
   display: none;
 }
-.astroprisma.sheet.actor .astro-footer {
+.astroprisma.sheet.actor.character .astro-footer {
   border: 1px solid black;
   border-radius: 3px;
   height: 100px;
