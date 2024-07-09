@@ -246,7 +246,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		console.log(event)
 
 		if (dataset.rollType == 'attribute') {
-			let damage = `1d10 + @attributes.${dataset.status}.value[${game.i18n.localize(`ASTRO.stat.${dataset.status}`)}]`
+			let damage = `1d10 + @attributes.${dataset.status}[${game.i18n.localize(`ASTRO.stat.${dataset.status}`)}]`
 			let roll = new Roll(damage, this.actor.getRollData())
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
