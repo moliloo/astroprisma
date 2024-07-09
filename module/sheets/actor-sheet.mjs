@@ -268,7 +268,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 			return roll
 		}
 
-		if (dataset.rollType == 'hack') {
+		if (dataset.rollType == 'hack' || 'cybertech') {
 			let currentEnergy = this.actor.system.values.energy.value
 			const itemId = element.closest('.item').dataset.itemId
 			const item = this.actor.items.get(itemId)

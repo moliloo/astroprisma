@@ -33,6 +33,7 @@
 	"ASTRO.actor.weapons.damage": "Damage",
 	"ASTRO.actor.hacks.hacks": "Hacks",
 	"ASTRO.actor.hacks.name": "Name",
+	"ASTRO.cybertechs.cybertechs": "Cybertechs",
 	"ASTRO.actor.itemOption.newItem": "New Item",
 	"ASTRO.actor.itemOption.newWeapon": "Create New Weapon",
 	"ASTRO.actor.itemOption.newHack": "Create New Hack",
