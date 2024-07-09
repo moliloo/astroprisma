@@ -90,21 +90,43 @@ export class AstroprismaActorSheet extends ActorSheet {
 		// Initialize containers.
 		const weapons = []
 		const hacks = []
-		const items = []
 		const cybertechs = []
+		const armors = []
+		const consumables = []
+		const drones = []
+		const grenades = []
+		const mods = []
+		const narcobiotics = []
+		const starshipParts = []
 
 		// Iterate through items, allocating to containers
 		for (let i of event.items) {
 			i.img = i.img || Item.DEFAULT_ICON
 
-			if (i.type === 'weapon') {
-				weapons.push(i)
-			} else if (i.type === 'hack') {
-				hacks.push(i)
-			} else if (i.type === 'cybertech') {
-				cybertechs.push(i)
-			} else if (i.type === 'item') {
-				items.push(i)
+			switch (i.type) {
+				case 'weapon':
+					weapons.push(i)
+					break
+				case 'hack':
+					hacks.push(i)
+					break
+				case 'cybertech':
+					cybertechs.push(i)
+					break
+				case 'armor':
+					armors.push(i)
+					break
+				case 'consumable':
+					consumables.push(i)
+					break
+				case 'drone':
+					drones.push(i)
+					break
+				case 'grenade':
+					grenades.push(i)
+					break
+				default:
+					console.warn(`Tipo inesperado: ${i.type}`)
 			}
 		}
 
@@ -112,7 +134,7 @@ export class AstroprismaActorSheet extends ActorSheet {
 		event.weapons = weapons
 		event.hacks = hacks
 		event.cybertechs = cybertechs
-		event.items = items
+		event.armors = armors
 	}
 
 	async _removeHyperdriveValue(event) {
