@@ -8,9 +8,7 @@ export default class AstroprismaNpc extends AstroprismaActorBase {
 		const requiredInteger = { required: true, nullable: false, integer: true }
 		const schema = super.defineSchema()
 
-		schema.difficulty = new fields.SchemaField({
-			value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
-		 })
+		schema.difficulty = new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
 
 		schema.biography = new fields.HTMLField()
 

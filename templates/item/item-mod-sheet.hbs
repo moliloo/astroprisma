@@ -11,15 +11,15 @@
 			</tr>
 			<tr>
 				<td>
-					<select name='system.type.name'>
-						{{#select system.type.name}}
+					<select name='system.type'>
+						{{#select system.type}}
 							<option value='ranged'>{{localize 'ASTRO.weapon.type.ranged'}}</option>
 							<option value='melee'>{{localize 'ASTRO.weapon.type.melee'}}</option>
 						{{/select}}
 					</select>
 				</td>
 				<td>
-					<input name='system.price.value' type='number' value='{{system.price.value}}' data-type='Number' />
+					<input name='system.price' type='number' value='{{system.price}}' data-type='Number' />
 				</td>
 			</tr>
 		</table>

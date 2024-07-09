@@ -3,8 +3,8 @@
    static get defaultOptions() {
      return foundry.utils.mergeObject(super.defaultOptions, {
        classes: ['astroprisma', 'sheet', 'item'],
-       width: 520,
-       height: 480,
+       width: 300,
+       height: 300,
      });
    }
  

@@ -187,28 +187,28 @@ export class AstroprismaActorSheet extends ActorSheet {
 		event.preventDefault()
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
-		await item.update({ 'system.eqquiped.boolean': true })
+		await item.update({ 'system.eqquiped': true })
 	}
 
 	async _unequipItem(event) {
 		event.preventDefault()
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
-		await item.update({ 'system.eqquiped.boolean': false })
+		await item.update({ 'system.eqquiped': false })
 	}
 
 	async _openFolder(event) {
 		event.preventDefault()
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
-		await item.update({ 'system.openFolder.boolean': true })
+		await item.update({ 'system.openFolder': true })
 	}
 
 	async _closeFolder(event) {
 		event.preventDefault()
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
-		await item.update({ 'system.openFolder.boolean': false })
+		await item.update({ 'system.openFolder': false })
 	}
 
 	_onRoll(event) {

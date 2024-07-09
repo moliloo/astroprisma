@@ -7,9 +7,7 @@ export default class AstroprismaStarshipPart extends AstroprismaItemBase {
       const requiredInteger = { required: true, nullable: false, integer: true }
 		const schema = super.defineSchema()
 
-		schema.price = new fields.SchemaField({
-			value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
-		})
+		schema.price = new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
 
 		return schema
 	}
