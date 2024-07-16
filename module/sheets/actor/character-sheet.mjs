@@ -298,7 +298,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 
 		if (dataset.rollType === 'weapon') {
 			let label = `<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
-			let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
+			let damage = `${dataset.roll} + @attributes.${dataset.bonus}[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
 			let roll = new Roll(damage, this.actor.getRollData())
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -324,7 +324,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 						if (dataset.bonus === 'none') {
 							damage = `${dataset.roll}`
 						} else {
-							damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
+							damage = `${dataset.roll} + @attributes.${dataset.bonus}[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
 						}
 						let roll = new Roll(damage, this.actor.getRollData())
 						roll.toMessage({
