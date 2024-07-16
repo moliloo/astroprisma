@@ -236,7 +236,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 				system: {
 					price: 0,
 					quantity: 1,
-					damage: '1d6'
+					damage: '1d6',
 				},
 			}
 			if (foundItem) {
@@ -375,6 +375,12 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			} else {
 				return roll && item.delete()
 			}
+		}
+
+		if (dataset.rollType === 'mods') {
+			const itemId = element.closest('.item').dataset.itemId
+			const item = this.actor.items.get(itemId)
+			if (item) return item.roll()
 		}
 	}
 
