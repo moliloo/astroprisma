@@ -166,13 +166,11 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		let element = event.currentTarget
 		const itemId = element.closest('.item').dataset.itemId
 		const item = this.actor.items.get(itemId)
-		console.log(item)
 		await item.update({ 'system.quantity': item.system.quantity + 1 })
 	}
 
 	async _onItemCreate(event) {
 		event.preventDefault()
-		console.log(event)
 		let element = event.currentTarget
 		if (element.dataset.type === 'weapon') {
 			let itemData = {
@@ -216,13 +214,29 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		}
 		if (element.dataset.type === 'consumable') {
 			let foundItem = this.actor.items.find((item) => item.name == element.dataset.name && item.type == element.dataset.type)
-			console.log(foundItem)
 			let itemData = {
 				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
 				type: element.dataset.type,
 				system: {
 					price: 0,
 					quantity: 1,
+				},
+			}
+			if (foundItem) {
+				return await foundItem.update({ 'system.quantity': foundItem.system.quantity + 1 })
+			} else {
+				return await Item.create(itemData, { parent: this.actor })
+			}
+		}
+		if (element.dataset.type === 'grenade') {
+			let foundItem = this.actor.items.find((item) => item.name == element.dataset.name && item.type == element.dataset.type)
+			let itemData = {
+				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
+				type: element.dataset.type,
+				system: {
+					price: 0,
+					quantity: 1,
+					damage: '1d6'
 				},
 			}
 			if (foundItem) {
@@ -265,7 +279,6 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		event.preventDefault()
 		const element = event.currentTarget
 		const dataset = element.dataset
-		console.log(event)
 
 		if (dataset.rollType == 'attribute') {
 			let damage = `1d10 + @attributes.${dataset.status}[${game.i18n.localize(`ASTRO.stat.${dataset.status}`)}]`
@@ -342,12 +355,32 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 				return item.delete() && item.roll()
 			}
 		}
+
+		if (dataset.rollType === 'grenade') {
+			const itemId = element.closest('.item').dataset.itemId
+			const item = this.actor.items.get(itemId)
+			let quantity = item.system.quantity
+			console.log(item)
+
+			let label = `<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
+			let damage = `${dataset.roll}`
+			let roll = new Roll(damage, this.actor.getRollData())
+			roll.toMessage({
+				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+				flavor: label,
+				rollMode: game.settings.get('core', 'rollMode'),
+			})
+			if (quantity > 1) {
+				return roll && item.update({ 'system.quantity': item.system.quantity - 1 })
+			} else {
+				return roll && item.delete()
+			}
+		}
 	}
 
 	_onItemEdit(event) {
 		event.preventDefault()
 		event.stopPropagation()
-		console.log(event)
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
 
