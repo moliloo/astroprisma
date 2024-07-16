@@ -44,6 +44,8 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		html.find('.item-edit').on('click', this._onItemEdit.bind(this))
 		html.on('click', '.rollable', this._onRoll.bind(this))
 
+		html.find('.consumable-plus').on('click', this._addConsumable.bind(this))
+
 		html.find('.item-create').on('click', this._onItemCreate.bind(this))
 		html.on('click', '.item-delete', (ev) => {
 			const li = $(ev.currentTarget).parents('.item')
@@ -96,7 +98,6 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		const drones = []
 		const grenades = []
 		const mods = []
-		const narcobiotics = []
 
 		// Iterate through items, allocating to containers
 		for (let i of event.items) {
@@ -128,7 +129,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 					mods.push(i)
 					break
 				case 'narcobiotic':
-					narcobiotics.push(i)
+					consumables.push(i)
 					break
 				default:
 					console.warn(`Tipo inesperado: ${i.type}`)
@@ -140,6 +141,10 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		event.hacks = hacks
 		event.cybertechs = cybertechs
 		event.armors = armors
+		event.consumables = consumables
+		event.grenades = grenades
+		event.mods = mods
+		event.narcobiotics = consumables
 	}
 
 	async _removeHyperdriveValue(event) {
@@ -156,8 +161,18 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		}
 	}
 
+	async _addConsumable(event) {
+		event.preventDefault()
+		let element = event.currentTarget
+		const itemId = element.closest('.item').dataset.itemId
+		const item = this.actor.items.get(itemId)
+		console.log(item)
+		await item.update({ 'system.quantity': item.system.quantity + 1 })
+	}
+
 	async _onItemCreate(event) {
 		event.preventDefault()
+		console.log(event)
 		let element = event.currentTarget
 		if (element.dataset.type === 'weapon') {
 			let itemData = {
@@ -200,14 +215,21 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			return await Item.create(itemData, { parent: this.actor })
 		}
 		if (element.dataset.type === 'consumable') {
+			let foundItem = this.actor.items.find((item) => item.name == element.dataset.name && item.type == element.dataset.type)
+			console.log(foundItem)
 			let itemData = {
 				name: game.i18n.localize('ASTRO.actor.itemOption.newItem'),
 				type: element.dataset.type,
 				system: {
 					price: 0,
+					quantity: 1,
 				},
 			}
-			return await Item.create(itemData, { parent: this.actor })
+			if (foundItem) {
+				return await foundItem.update({ 'system.quantity': foundItem.system.quantity + 1 })
+			} else {
+				return await Item.create(itemData, { parent: this.actor })
+			}
 		}
 	}
 
@@ -255,13 +277,13 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			return roll
 		}
 
-		if (dataset.rollType == 'item') {
-			const itemId = element.closest('.item').dataset.itemId
-			const item = this.actor.items.get(itemId)
-			if (item) return item.roll()
-		}
+		// if (dataset.rollType == 'item') {
+		// 	const itemId = element.closest('.item').dataset.itemId
+		// 	const item = this.actor.items.get(itemId)
+		// 	if (item) return item.roll()
+		// }
 
-		if (dataset.rollType == 'weapon') {
+		if (dataset.rollType === 'weapon') {
 			let label = `<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
 			let damage = `${dataset.roll} + @attributes.${dataset.bonus}.value[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
 			let roll = new Roll(damage, this.actor.getRollData())
@@ -273,7 +295,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			return roll
 		}
 
-		if (dataset.rollType == 'hack' || 'cybertech') {
+		if (dataset.rollType === 'hack' || dataset.rollType === 'cybertech') {
 			let currentEnergy = this.actor.system.values.energy.value
 			const itemId = element.closest('.item').dataset.itemId
 			const item = this.actor.items.get(itemId)
@@ -306,6 +328,18 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 				}
 			} else {
 				ui.notifications.error(game.i18n.localize('ASTRO.ui.notifications.noStamina'))
+			}
+		}
+
+		if (dataset.rollType === 'consumable' || dataset.rollType === 'narcobiotic') {
+			const itemId = element.closest('.item').dataset.itemId
+			const item = this.actor.items.get(itemId)
+			let quantity = item.system.quantity
+
+			if (quantity >= 2) {
+				return item.update({ 'system.quantity': item.system.quantity - 1 }) && item.roll()
+			} else {
+				return item.delete() && item.roll()
 			}
 		}
 	}

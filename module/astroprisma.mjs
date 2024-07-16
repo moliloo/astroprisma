@@ -60,6 +60,7 @@ Hooks.once('ready', function () {
 	Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot))
 })
 
+
 Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
 	return arg1 == arg2 ? options.fn(this) : options.inverse(this)
 })
