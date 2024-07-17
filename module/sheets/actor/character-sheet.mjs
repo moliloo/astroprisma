@@ -145,6 +145,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		event.grenades = grenades
 		event.mods = mods
 		event.narcobiotics = consumables
+		event.drones = drones
 	}
 
 	async _removeHyperdriveValue(event) {
