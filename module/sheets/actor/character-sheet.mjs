@@ -251,14 +251,22 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		event.preventDefault()
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
-		await item.update({ 'system.eqquiped': true })
+		if (item.type === 'armor') {
+			return await item.update({ 'system.eqquiped': true }) && this.actor.update({ 'system.values.armor': item.system.armor })
+		} else {
+			return await item.update({ 'system.eqquiped': true })
+		}
 	}
 
 	async _unequipItem(event) {
 		event.preventDefault()
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
-		await item.update({ 'system.eqquiped': false })
+		if (item.type === 'armor') {
+			return await item.update({ 'system.eqquiped': false }) && this.actor.update({ 'system.values.armor': 0 })
+		} else {
+			return await item.update({ 'system.eqquiped': false })
+		}
 	}
 
 	async _openFolder(event) {
