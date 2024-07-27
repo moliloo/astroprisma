@@ -26,6 +26,15 @@ export default class AstroprismaActorBase extends foundry.abstract.TypeDataModel
 
 		schema.biography = new fields.HTMLField({ required: true, blank: true, initial: 'Biography' })
 
+		// schema.coreEffects = new fields.SchemaField({
+		// 	overheat: new fields.SchemaField({
+		// 		name: new fields.HTMLField({ required: true, blank: true, initial: 'overheat' }),
+		// 		active: new fields.BooleanField({ initial: false }),
+		// 		openFolder: new fields.BooleanField({ initial: false }),
+		// 		description: new fields.HTMLField({ required: true, blank: true, initial: game.i18n.localize('ASTRO.actor.itemOption.editItem') }),
+		// 	}),
+		// })
+
 		return schema
 	}
 }
