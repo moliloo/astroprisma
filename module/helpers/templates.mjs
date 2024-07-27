@@ -11,6 +11,7 @@ export const preloadHandlebarsTemplates = async function () {
 		'systems/astroprisma/templates/actor/part/character/tab/tab-inventory-mod.hbs',
 		'systems/astroprisma/templates/actor/part/character/tab/tab-inventory-armor.hbs',
 		'systems/astroprisma/templates/actor/part/character/tab/tab-inventory-drone.hbs',
+		'systems/astroprisma/templates/actor/part/character/tab/tab-inventory-quest-item.hbs',
 		'systems/astroprisma/templates/actor/part/character/tab/tab-weapons.hbs',
 		'systems/astroprisma/templates/actor/part/character/tab/tab-weapons-cybertech.hbs',
 		'systems/astroprisma/templates/actor/part/character/tab/tab-weapons-hack.hbs',

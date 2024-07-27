@@ -132,7 +132,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 				case 'narcobiotic':
 					consumables.push(i)
 					break
-				case 'quest-items':
+				case 'quest-item':
 					questItems.push(i)
 					break
 				default:
