@@ -98,6 +98,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		const drones = []
 		const grenades = []
 		const mods = []
+		const questItems = []
 
 		// Iterate through items, allocating to containers
 		for (let i of event.items) {
@@ -131,6 +132,9 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 				case 'narcobiotic':
 					consumables.push(i)
 					break
+				case 'quest-items':
+					questItems.push(i)
+					break
 				default:
 					console.warn(`Tipo inesperado: ${i.type}`)
 			}
@@ -146,6 +150,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		event.mods = mods
 		event.narcobiotics = consumables
 		event.drones = drones
+		event.questItems = questItems
 	}
 
 	async _removeHyperdriveValue(event) {
@@ -253,7 +258,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
 		if (item.type === 'armor') {
-			return await item.update({ 'system.eqquiped': true }) && this.actor.update({ 'system.values.armor': item.system.armor })
+			return (await item.update({ 'system.eqquiped': true })) && this.actor.update({ 'system.values.armor': item.system.armor })
 		} else {
 			return await item.update({ 'system.eqquiped': true })
 		}
@@ -264,7 +269,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
 		if (item.type === 'armor') {
-			return await item.update({ 'system.eqquiped': false }) && this.actor.update({ 'system.values.armor': 0 })
+			return (await item.update({ 'system.eqquiped': false })) && this.actor.update({ 'system.values.armor': 0 })
 		} else {
 			return await item.update({ 'system.eqquiped': false })
 		}

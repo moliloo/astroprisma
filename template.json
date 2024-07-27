@@ -6,7 +6,7 @@
 		"npc": {}
 	},
 	"Item": {
-		"types": ["armor", "consumable", "cybertech", "drone", "grenade", "hack", "mod", "narcobiotic", "origin", "starship-part", "weapon"],
+		"types": ["armor", "consumable", "cybertech", "drone", "grenade", "hack", "mod", "narcobiotic", "origin","quest-item", "starship-part", "weapon"],
 		"HTMLField": ["description"],
 		"armor": {},
 		"consumable": {},
