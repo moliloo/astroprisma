@@ -245,6 +245,9 @@
 .astroprisma.sheet.actor.character .astro-sidebar .tabs .tab-select {
   overflow-y: auto;
 }
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .tab-select .editor {
+  height: auto;
+}
 .astroprisma.sheet.actor.character .astro-sidebar .tabs .items-list .invisible {
   display: none;
 }
