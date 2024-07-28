@@ -1,7 +1,7 @@
 {{#each weapons as |item id|}}
-	<li class='weapon-item item flexcol' data-item-id='{{item._id}}'>
-		<div class='flexrow item-row'>
-			<img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
+	<li class='weapon-item item' data-item-id='{{item._id}}'>
+		<div class='item-row'>
+			<img class='weapon-img' src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
 			<a
 				title='{{localize "ASTRO.actor.itemOption.roll"}}'
 				class='rollable'
@@ -11,6 +11,7 @@
 				data-roll='{{system.damage}}'
 				data-bonus='{{system.statusBonus}}'
 				data-description='{{{system.description}}}'
+				class='weapon-name'
 			>
 				<h4 type='text' data-type='String'>{{item.name}}</h4>
 			</a>

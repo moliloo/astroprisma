@@ -248,6 +248,57 @@
 .astroprisma.sheet.actor.character .astro-sidebar .tabs .tab-select .editor {
   height: auto;
 }
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section {
+  padding: 5px;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section h4 {
+  border-bottom: none;
+  margin: 0;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-header {
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+  place-items: center;
+  background-color: #d71f30;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list {
+  display: flex;
+  flex-direction: column;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item .item-row {
+  padding: 5px 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+  place-items: center;
+  color: #310005;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item .weapon-img {
+  object-fit: cover;
+  height: 30px;
+  width: 30px;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item:nth-child(odd) {
+  background-color: #ffb7bd;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item:nth-child(even) {
+  background-color: #ff828d;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item:first-child {
+  border-radius: 5px 5px 0 0;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item:last-child {
+  border-radius: 0 0 5px 5px;
+}
 .astroprisma.sheet.actor.character .astro-sidebar .tabs .items-list .invisible {
   display: none;
 }

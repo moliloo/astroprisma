@@ -251,6 +251,59 @@
 					height: auto;
 				}
 			}
+			.weapons-section {
+				padding: 5px;
+				h4 {
+					border-bottom: none;
+					margin: 0;
+				}
+				.items-header {
+					border-radius: 5px;
+					padding: 5px 10px;
+					display: grid;
+					grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+					place-items: center;
+					background-color: #d71f30;
+					color: white;
+					text-transform: uppercase;
+					font-weight: bold;
+				}
+				ol {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+				}
+				.items-list {
+					display: flex;
+					flex-direction: column;
+					.weapon-item {
+						.item-row {
+							padding: 5px 10px;
+							display: grid;
+							grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+							place-items: center;
+							color: #310005;
+						}
+						.weapon-img {
+							object-fit: cover;
+							height: 30px;
+							width: 30px;
+						}
+					}
+					.weapon-item:nth-child(odd) {
+						background-color: #ffb7bd;
+					}
+					.weapon-item:nth-child(even) {
+						background-color: #ff828d;
+					}
+					.weapon-item:first-child {
+						border-radius: 5px 5px 0 0;
+					}
+					.weapon-item:last-child {
+						border-radius: 0 0 5px 5px;
+					}
+				}
+			}
 			.items-list {
 				.invisible {
 					display: none;
