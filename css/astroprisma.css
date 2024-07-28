@@ -276,7 +276,7 @@
   flex-direction: column;
 }
 .astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item .item-row {
-  padding: 5px 10px;
+  padding: 5px 10px 0;
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
   place-items: center;
@@ -298,6 +298,63 @@
 }
 .astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item:last-child {
   border-radius: 0 0 5px 5px;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .item-info {
+  padding-bottom: 5px;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section {
+  padding: 5px;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section h4 {
+  border-bottom: none;
+  margin: 0;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-header {
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+  place-items: center;
+  background-color: #35ae44;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list {
+  display: flex;
+  flex-direction: column;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item .item-row {
+  padding: 5px 10px 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+  place-items: center;
+  color: #002f06;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item .hack-img {
+  object-fit: cover;
+  height: 30px;
+  width: 30px;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item:nth-child(odd) {
+  background-color: #a3eaab;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item:nth-child(even) {
+  background-color: #7fde8b;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item:first-child {
+  border-radius: 5px 5px 0 0;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item:last-child {
+  border-radius: 0 0 5px 5px;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .item-info {
+  padding-bottom: 5px;
 }
 .astroprisma.sheet.actor.character .astro-sidebar .tabs .items-list .invisible {
   display: none;

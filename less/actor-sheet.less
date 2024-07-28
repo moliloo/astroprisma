@@ -278,7 +278,7 @@
 					flex-direction: column;
 					.weapon-item {
 						.item-row {
-							padding: 5px 10px;
+							padding: 5px 10px 0;
 							display: grid;
 							grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
 							place-items: center;
@@ -302,6 +302,65 @@
 					.weapon-item:last-child {
 						border-radius: 0 0 5px 5px;
 					}
+				}
+				.item-info {
+					padding-bottom: 5px;
+				}
+			}
+			.hacks-section {
+				padding: 5px;
+				h4 {
+					border-bottom: none;
+					margin: 0;
+				}
+				.items-header {
+					border-radius: 5px;
+					padding: 5px 10px;
+					display: grid;
+					grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+					place-items: center;
+					background-color: #35ae44;
+					color: white;
+					text-transform: uppercase;
+					font-weight: bold;
+				}
+				ol {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+				}
+				.items-list {
+					display: flex;
+					flex-direction: column;
+					.hack-item {
+						.item-row {
+							padding: 5px 10px 0;
+							display: grid;
+							grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+							place-items: center;
+							color: #002f06;
+						}
+						.hack-img {
+							object-fit: cover;
+							height: 30px;
+							width: 30px;
+						}
+					}
+					.hack-item:nth-child(odd) {
+						background-color: #a3eaab;
+					}
+					.hack-item:nth-child(even) {
+						background-color: #7fde8b;
+					}
+					.hack-item:first-child {
+						border-radius: 5px 5px 0 0;
+					}
+					.hack-item:last-child {
+						border-radius: 0 0 5px 5px;
+					}
+				}
+				.item-info {
+					padding-bottom: 5px;
 				}
 			}
 			.items-list {

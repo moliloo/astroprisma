@@ -1,7 +1,7 @@
 {{#each hacks as |item id|}}
 	<li class='hack-item item flexcol' data-item-id='{{item._id}}'>
-		<div class='flexrow item-row'>
-			<img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
+		<div class='item-row'>
+			<img class='weapon-img' src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
 			<a
 				title='{{localize "ASTRO.actor.itemOption.roll"}}'
 				class='rollable'
@@ -45,11 +45,13 @@
 			</div>
 		</div>
 		<div class='item-info'>
-			{{#if system.openFolder}}
-				{{{system.description}}}
-			{{else}}
-				<span></span>
-			{{/if}}
+			<div class='item-description'>
+				{{#if system.openFolder}}
+					{{{system.description}}}
+				{{else}}
+					<span></span>
+				{{/if}}
+			</div>
 		</div>
 	</li>
 {{/each}}
