@@ -261,7 +261,7 @@
 					border-radius: 5px;
 					padding: 5px 10px;
 					display: grid;
-					grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+					grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
 					place-items: center;
 					background-color: #d71f30;
 					color: white;
@@ -280,7 +280,7 @@
 						.item-row {
 							padding: 5px 10px 0;
 							display: grid;
-							grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+							grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
 							place-items: center;
 							color: #310005;
 						}
@@ -294,7 +294,7 @@
 						background-color: #ffb7bd;
 					}
 					.weapon-item:nth-child(even) {
-						background-color: #ff828d;
+						background-color: #ff9ea7;
 					}
 					.weapon-item:first-child {
 						border-radius: 5px 5px 0 0;
@@ -317,7 +317,7 @@
 					border-radius: 5px;
 					padding: 5px 10px;
 					display: grid;
-					grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+					grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
 					place-items: center;
 					background-color: #35ae44;
 					color: white;
@@ -336,7 +336,7 @@
 						.item-row {
 							padding: 5px 10px 0;
 							display: grid;
-							grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+							grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
 							place-items: center;
 							color: #002f06;
 						}
@@ -356,6 +356,62 @@
 						border-radius: 5px 5px 0 0;
 					}
 					.hack-item:last-child {
+						border-radius: 0 0 5px 5px;
+					}
+				}
+				.item-info {
+					padding-bottom: 5px;
+				}
+			}
+			.cybertechs-section {
+				padding: 5px;
+				h4 {
+					border-bottom: none;
+					margin: 0;
+				}
+				.items-header {
+					border-radius: 5px;
+					padding: 5px 10px;
+					display: grid;
+					grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+					place-items: center;
+					background-color: #56c0c1;
+					color: white;
+					text-transform: uppercase;
+					font-weight: bold;
+				}
+				ol {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+				}
+				.items-list {
+					display: flex;
+					flex-direction: column;
+					.cybertech-item {
+						.item-row {
+							padding: 5px 10px 0;
+							display: grid;
+							grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+							place-items: center;
+							color: #002323;
+						}
+						.cybertech-img {
+							object-fit: cover;
+							height: 30px;
+							width: 30px;
+						}
+					}
+					.cybertech-item:nth-child(odd) {
+						background-color: #b7f6f6;
+					}
+					.cybertech-item:nth-child(even) {
+						background-color: #8be4e4;
+					}
+					.cybertech-item:first-child {
+						border-radius: 5px 5px 0 0;
+					}
+					.cybertech-item:last-child {
 						border-radius: 0 0 5px 5px;
 					}
 				}

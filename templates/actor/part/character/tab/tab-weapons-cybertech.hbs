@@ -1,7 +1,7 @@
 {{#each cybertechs as |item id|}}
 	<li class='cybertech-item item flexcol' data-item-id='{{item._id}}'>
-		<div class='flexrow item-row'>
-			<img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
+		<div class='item-row'>
+			<img class='cybertech-img' src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
 			<a
 				title='{{localize "ASTRO.actor.itemOption.roll"}}'
 				class='rollable'

@@ -11,7 +11,7 @@
 	</ol>
 </section>
 <section class='hacks-section'>
-	<div class='flexrow items-header'>
+	<div class='items-header'>
 		<h4>{{localize 'ASTRO.actor.hacks.hacks'}}</h4>
 		<h4 class='item-name'>{{localize 'ASTRO.actor.hacks.name'}}</h4>
 		<h4 class='item-formula'>{{localize 'ASTRO.actor.weapons.damage'}}</h4>
@@ -23,16 +23,12 @@
 	</ol>
 </section>
 <section class="cybertechs-section">
-	<div class='flexrow items-header'>
-		<h3>{{localize 'ASTRO.cybertechs.cybertechs'}}</h3>
-		<h3 class='item-name'>{{localize 'ASTRO.actor.hacks.name'}}</h3>
-		<h3 class='item-formula'>{{localize 'ASTRO.actor.weapons.damage'}}</h3>
-		<h3>{{localize 'ASTRO.hack.cost.name'}}</h3>
-		<h3 class='item-controls'>
-			<a class='item-control item-create' title='{{localize "ASTRO.actor.itemOption.newHack"}}' data-type='cybertech'>
-				<i class='fas fa-plus'></i>
-			</a>
-		</h3>
+	<div class='items-header'>
+		<h4>{{localize 'ASTRO.cybertechs.cybertechs'}}</h4>
+		<h4 class='item-name'>{{localize 'ASTRO.actor.hacks.name'}}</h4>
+		<h4 class='item-formula'>{{localize 'ASTRO.actor.weapons.damage'}}</h4>
+		<h4>{{localize 'ASTRO.hack.cost.name'}}</h4>
+		<h4>0/0</h4>
 	</div>
 	<ol class='items-list'>
 		{{> 'systems/astroprisma/templates/actor/part/character/tab/tab-weapons-cybertech.hbs'}}
