@@ -15,7 +15,11 @@
 				<h4 type='text' data-type='String'>{{item.name}}</h4>
 			</a>
 			<h4 type='text' data-type='String'>{{system.damage}}+[<span style='text-transform: uppercase;'>{{system.statusBonus}}</span>]</h4>
-			<h4 type='number' data-type='String'>{{system.price}}</h4>
+			{{#if (gt system.price 0)}}
+				<h4 type='number' data-type='String'>{{system.price}}</h4>
+			{{else}}
+				<span>-</span>
+			{{/if}}
 			<div class='item-controls'>
 				{{#if system.eqquiped}}
 					<a class='item-control item-toggle-unequip' title='{{localize "ASTRO.actor.itemOption.unequip"}}'>
