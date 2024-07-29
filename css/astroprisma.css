@@ -413,6 +413,65 @@
 .astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section .item-info {
   padding-bottom: 5px;
 }
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section {
+  padding: 5px;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section h4 {
+  border-bottom: none;
+  margin: 0;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-header {
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+  place-items: center;
+  background-color: #f4b915;
+  color: #1d1500;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-header h4 {
+  border-bottom: none;
+  margin: 0;
+  text-align: center;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list {
+  display: flex;
+  flex-direction: column;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item .item-row {
+  padding: 5px 10px 0;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+  place-items: center;
+  color: #1d1500;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item .inventory-img {
+  object-fit: cover;
+  height: 30px;
+  width: 30px;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item:nth-child(odd) {
+  background-color: #ffe498;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item:nth-child(even) {
+  background-color: #ffdb77;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item:first-child {
+  border-radius: 5px 5px 0 0;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item:last-child {
+  border-radius: 0 0 5px 5px;
+}
+.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .item-info {
+  padding-bottom: 5px;
+}
 .astroprisma.sheet.actor.character .astro-sidebar .tabs .items-list .invisible {
   display: none;
 }
