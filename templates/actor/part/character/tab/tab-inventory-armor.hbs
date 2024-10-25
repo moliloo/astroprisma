@@ -1,47 +1,47 @@
 {{#each armors as |item id|}}
-			<li class='item-item item flexcol' data-item-id='{{item._id}}'>
-				<div class='flexrow item-row'>
-					<img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
-					<a
-						title='{{localize "ASTRO.actor.itemOption.roll"}}'
-						class='rollable'
-						data-roll-type='armor'
-						data-label='{{item.name}}'
-						data-img='{{item.img}}'
-						data-description='{{{system.description}}}'
-						data-armor='{{{system.armor}}}'
-					>
-						<h4 type='text' data-type='String'>{{item.name}}</h4>
-					</a>
-					<h4 type='text' data-type='String' style='text-transform: capitalize;'>{{system.type}}</h4>
-					<h4 type='number' data-type='String'>{{system.price}}</h4>
-					<div class='item-controls'>
-						{{#if system.eqquiped}}
-							<a class='item-control item-toggle-unequip' title='{{localize "ASTRO.actor.itemOption.unequip"}}'>
-								<i class='fa-solid fa-toggle-on'></i>
-							</a>
-						{{else}}
-							<a class='item-control item-toggle-equip' title='{{localize "ASTRO.actor.itemOption.equip"}}'>
-								<i class='fa-solid fa-toggle-off'></i>
-							</a>
-						{{/if}}
-						{{#if system.openFolder}}
-							<a class='item-control item-folder-close' title='{{localize "ASTRO.actor.itemOption.info"}}'>
-								<i class='fa-solid fa-folder-open'></i>
-							</a>
-						{{else}}
-							<a class='item-control item-folder-open' title='{{localize "ASTRO.actor.itemOption.info"}}'>
-								<i class='fa-solid fa-folder'></i>
-							</a>
-						{{/if}}
-					</div>
-				</div>
-				<div class='item-info'>
-					{{#if system.openFolder}}
-						{{{system.description}}}
-					{{else}}
-						<span></span>
-					{{/if}}
-				</div>
-			</li>
-		{{/each}}
+    <li class='inventory-item item-item item flexcol' data-item-id='{{item._id}}'>
+        <div class='flexrow item-row'>
+            <img src='{{item.img}}' data-edit='img' title='{{item.name}}' height='30' width='30' />
+            <a
+                title='{{localize "ASTRO.actor.itemOption.roll"}}'
+                class='rollable'
+                data-roll-type='armor'
+                data-label='{{item.name}}'
+                data-img='{{item.img}}'
+                data-description='{{{system.description}}}'
+                data-armor='{{{system.armor}}}'
+            >
+                <h4 type='text' data-type='String'>{{item.name}}</h4>
+            </a>
+            <h4 type='text' data-type='String' style='text-transform: capitalize;'>{{system.armor}}</h4>
+            <h4 type='number' data-type='String'>{{system.price}}</h4>
+            <div class='item-controls'>
+                {{#if system.eqquiped}}
+                    <a class='item-control item-toggle-unequip' title='{{localize "ASTRO.actor.itemOption.unequip"}}'>
+                        <i class='fa-solid fa-toggle-on'></i>
+                    </a>
+                {{else}}
+                    <a class='item-control item-toggle-equip' title='{{localize "ASTRO.actor.itemOption.equip"}}'>
+                        <i class='fa-solid fa-toggle-off'></i>
+                    </a>
+                {{/if}}
+                {{#if system.openFolder}}
+                    <a class='item-control item-folder-close' title='{{localize "ASTRO.actor.itemOption.info"}}'>
+                        <i class='fa-solid fa-folder-open'></i>
+                    </a>
+                {{else}}
+                    <a class='item-control item-folder-open' title='{{localize "ASTRO.actor.itemOption.info"}}'>
+                        <i class='fa-solid fa-folder'></i>
+                    </a>
+                {{/if}}
+            </div>
+        </div>
+        <div class='item-info'>
+            {{#if system.openFolder}}
+                {{{system.description}}}
+            {{else}}
+                <span></span>
+            {{/if}}
+        </div>
+    </li>
+{{/each}}
