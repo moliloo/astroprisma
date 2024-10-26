@@ -6,7 +6,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			classes: ['astroprisma', 'sheet', 'actor', 'character'],
 			width: 630,
 			height: 670,
-			tabs: [{ navSelector: '.tab-nav', contentSelector: '.tab-select', initial: 'description' }],
+			tabs: [{ navSelector: '.tab-nav', contentSelector: '.tab-select', initial: 'description' }]
 		})
 	}
 
@@ -36,10 +36,8 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		if (!this.isEditable) return
 
 		html.on('click', '.item-toggle-equip', this._equipItem.bind(this))
-		html.on('click', '.item-toggle-unequip', this._unequipItem.bind(this))
 
-		html.on('click', '.item-folder-open', this._openFolder.bind(this))
-		html.on('click', '.item-folder-close', this._closeFolder.bind(this))
+		html.on('click', '.item-folder-toggle', this._toggleFolder.bind(this))
 
 		html.find('.item-edit').on('click', this._onItemEdit.bind(this))
 		html.on('click', '.rollable', this._onRoll.bind(this))
@@ -76,7 +74,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			callback: (event) => {
 				const item = this.actor.items.get(event[0].attributes[1].nodeValue)
 				item.sheet.render(true)
-			},
+			}
 		},
 		{
 			name: game.i18n.localize('ASTRO.actor.itemOption.deleteItem'),
@@ -84,8 +82,8 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			callback: (event) => {
 				const item = this.actor.items.get(event[0].attributes[1].nodeValue)
 				item.delete()
-			},
-		},
+			}
+		}
 	]
 
 	async _prepareItems(event) {
@@ -185,8 +183,8 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 				system: {
 					damage: '1d6',
 					price: 0,
-					statusBonus: 'vigor',
-				},
+					statusBonus: 'vigor'
+				}
 			}
 			return await Item.create(itemData, { parent: this.actor })
 		}
@@ -199,8 +197,8 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 					causeDamage: false,
 					energyCost: 0,
 					eqquiped: false,
-					statusBonus: 'mind',
-				},
+					statusBonus: 'mind'
+				}
 			}
 			return await Item.create(itemData, { parent: this.actor })
 		}
@@ -213,8 +211,8 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 					causeDamage: false,
 					energyCost: 0,
 					eqquiped: false,
-					statusBonus: 'mind',
-				},
+					statusBonus: 'mind'
+				}
 			}
 			return await Item.create(itemData, { parent: this.actor })
 		}
@@ -225,8 +223,8 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 				type: element.dataset.type,
 				system: {
 					price: 0,
-					quantity: 1,
-				},
+					quantity: 1
+				}
 			}
 			if (foundItem) {
 				return await foundItem.update({ 'system.quantity': foundItem.system.quantity + 1 })
@@ -242,8 +240,8 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 				system: {
 					price: 0,
 					quantity: 1,
-					damage: '1d6',
-				},
+					damage: '1d6'
+				}
 			}
 			if (foundItem) {
 				return await foundItem.update({ 'system.quantity': foundItem.system.quantity + 1 })
@@ -257,58 +255,56 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		event.preventDefault()
 		let itemId = event.currentTarget.closest('.item').dataset.itemId
 		let item = this.actor.items.get(itemId)
+		let scrollPos = $('.tab-select').scrollTop()
+
+		let isCurrentlyEquipped = item.system.eqquiped
+		let newEquipState = !isCurrentlyEquipped
+		let armorValue = item.type === 'armor' && item.system.eqquiped ? item.system.armor : 0
+
+		await item.update({ 'system.eqquiped': newEquipState })
+		$('.tab-select').scrollTop(scrollPos)
 		if (item.type === 'armor') {
-			return (await item.update({ 'system.eqquiped': true })) && this.actor.update({ 'system.values.armor': item.system.armor })
+			await this.actor.update({ 'system.values.armor': armorValue })
+			$('.tab-select').scrollTop(scrollPos)
+		}
+
+		$('.tab-select').scrollTop(scrollPos)
+	}
+
+	async _toggleFolder(event) {
+		event.preventDefault()
+		let weaponItem = event.currentTarget.closest('.item')
+		let description = $(weaponItem).find('.item-info')
+		description.toggleClass('invisible')
+		let icon = $(event.currentTarget).find('i')
+		if (icon.hasClass('fa-folder-open')) {
+			icon.removeClass('fa-folder-open').addClass('fa-folder')
 		} else {
-			return await item.update({ 'system.eqquiped': true })
+			icon.removeClass('fa-folder').addClass('fa-folder-open')
 		}
 	}
 
-	async _unequipItem(event) {
-		event.preventDefault()
-		let itemId = event.currentTarget.closest('.item').dataset.itemId
-		let item = this.actor.items.get(itemId)
-		if (item.type === 'armor') {
-			return (await item.update({ 'system.eqquiped': false })) && this.actor.update({ 'system.values.armor': 0 })
-		} else {
-			return await item.update({ 'system.eqquiped': false })
-		}
-	}
-
-	async _openFolder(event) {
-		event.preventDefault()
-		let itemId = event.currentTarget.closest('.item').dataset.itemId
-		let item = this.actor.items.get(itemId)
-		await item.update({ 'system.openFolder': true })
-	}
-
-	async _closeFolder(event) {
-		event.preventDefault()
-		let itemId = event.currentTarget.closest('.item').dataset.itemId
-		let item = this.actor.items.get(itemId)
-		await item.update({ 'system.openFolder': false })
-	}
-
-	_onRoll(event) {
+	async _onRoll(event) {
 		event.preventDefault()
 		const element = event.currentTarget
 		const dataset = element.dataset
+		let scrollPos = $('.tab-select').scrollTop()
 
 		if (dataset.rollType == 'attribute') {
 			let damage = `1d10 + @attributes.${dataset.status}[${game.i18n.localize(`ASTRO.stat.${dataset.status}`)}]`
 			let roll = new Roll(damage, this.actor.getRollData())
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				rollMode: game.settings.get('core', 'rollMode'),
+				rollMode: game.settings.get('core', 'rollMode')
 			})
 			return roll
 		}
 
-		// if (dataset.rollType == 'item') {
-		// 	const itemId = element.closest('.item').dataset.itemId
-		// 	const item = this.actor.items.get(itemId)
-		// 	if (item) return item.roll()
-		// }
+		if (dataset.rollType == 'item') {
+			const itemId = element.closest('.item').dataset.itemId
+			const item = this.actor.items.get(itemId)
+			if (item) return item.roll()
+		}
 
 		if (dataset.rollType === 'weapon') {
 			let label = `<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
@@ -317,7 +313,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: label,
-				rollMode: game.settings.get('core', 'rollMode'),
+				rollMode: game.settings.get('core', 'rollMode')
 			})
 			return roll
 		}
@@ -329,7 +325,8 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 
 			if (currentEnergy > 0) {
 				if (currentEnergy - dataset.energyCost >= 0) {
-					this.actor.update({ 'system.values.energy.value': this.actor.system.values.energy.value - dataset.energyCost })
+					await this.actor.update({ 'system.values.energy.value': currentEnergy - dataset.energyCost })
+					$('.tab-select').scrollTop(scrollPos)
 
 					let label = `<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
 					let damage = ``
@@ -344,7 +341,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 						roll.toMessage({
 							speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 							flavor: label,
-							rollMode: game.settings.get('core', 'rollMode'),
+							rollMode: game.settings.get('core', 'rollMode')
 						})
 						return roll
 					} else if (dataset.causeDamage == 'false') {
@@ -364,9 +361,13 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			let quantity = item.system.quantity
 
 			if (quantity >= 2) {
-				return item.update({ 'system.quantity': item.system.quantity - 1 }) && item.roll()
+				await item.update({ 'system.quantity': item.system.quantity - 1 })
+				await item.roll()
+				$('.tab-select').scrollTop(scrollPos)
 			} else {
-				return item.delete() && item.roll()
+				await item.delete()
+				await item.roll()
+				$('.tab-select').scrollTop(scrollPos)
 			}
 		}
 
@@ -382,12 +383,16 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: label,
-				rollMode: game.settings.get('core', 'rollMode'),
+				rollMode: game.settings.get('core', 'rollMode')
 			})
 			if (quantity > 1) {
-				return roll && item.update({ 'system.quantity': item.system.quantity - 1 })
+				await roll
+				await item.update({ 'system.quantity': item.system.quantity - 1 })
+				$('.tab-select').scrollTop(scrollPos)
 			} else {
-				return roll && item.delete()
+				await roll
+				await item.delete()
+				$('.tab-select').scrollTop(scrollPos)
 			}
 		}
 
