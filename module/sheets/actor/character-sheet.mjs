@@ -22,6 +22,8 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		context.config = CONFIG.ASTROPRISMA
 		context.rollData = context.actor.getRollData()
 
+		context.effects = this.prepareActiveEffectCategories(this.actor.effects)
+
 		this._prepareItems(context)
 
 		return context
@@ -44,6 +46,9 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 
 		html.find('.consumable-plus').on('click', this._addConsumable.bind(this))
 
+		html.on('click', '.effect-control', (ev) => this.onManageActiveEffect(ev, this.actor))
+		html.find('.effect-display').on('click', this._onActiveEffectDisplayInfo.bind(this))
+
 		html.find('.item-create').on('click', this._onItemCreate.bind(this))
 		html.on('click', '.item-delete', (ev) => {
 			const li = $(ev.currentTarget).parents('.item')
@@ -65,6 +70,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		new ContextMenu(html, '.hack-item', this.itemContextMenu)
 		new ContextMenu(html, '.cybertech-item', this.itemContextMenu)
 		new ContextMenu(html, '.item-item', this.itemContextMenu)
+		new ContextMenu(html, '.effect-row', this.effectContextMenu)
 	}
 
 	itemContextMenu = [
@@ -77,11 +83,30 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			}
 		},
 		{
-			name: game.i18n.localize('ASTRO.actor.itemOption.deleteItem'),
-			icon: '<i class="fas fa-trash"></i>',
+			name: `<span style="color: #d71f30;">${game.i18n.localize('ASTRO.actor.itemOption.deleteItem')}</span>`,
+			icon: '<i style="color: #d71f30;" class="fas fa-trash"></i>',
 			callback: (event) => {
 				const item = this.actor.items.get(event[0].attributes[1].nodeValue)
 				item.delete()
+			}
+		}
+	]
+
+	effectContextMenu = [
+		{
+			name: game.i18n.localize('ASTRO.activeEffect.update'),
+			icon: '<i class="fa-solid fa-pen-to-square"></i>',
+			callback: (event) => {
+				const effect = this.actor.effects.get(event[0].attributes[1].nodeValue)
+				effect.sheet.render(true)
+			}
+		},
+		{
+			name: `<span style="color: #d71f30;">${game.i18n.localize('ASTRO.activeEffect.delete')}</span>`,
+			icon: '<i style="color: #d71f30;" class="fas fa-trash"></i>',
+			callback: (event) => {
+				const effect = this.actor.effects.get(event[0].attributes[1].nodeValue)
+				effect.delete()
 			}
 		}
 	]
@@ -160,7 +185,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 
 	async _addHyperdriveValue(event) {
 		event.preventDefault()
-		if (this.actor.system.hyperdrive.value < 5) {
+		if (this.actor.system.hyperdrive.value < this.actor.system.hyperdrive.max) {
 			await this.actor.update({ 'system.hyperdrive.value': this.actor.system.hyperdrive.value + 1 })
 		}
 	}
@@ -401,6 +426,70 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 			const item = this.actor.items.get(itemId)
 			if (item) return item.roll()
 		}
+	}
+
+	onManageActiveEffect(event, owner) {
+		event.preventDefault()
+		const a = event.currentTarget
+		const li = a.closest('li')
+		const effect = li.dataset.effectId ? owner.effects.get(li.dataset.effectId) : null
+		switch (a.dataset.action) {
+			case 'create':
+				return owner.createEmbeddedDocuments('ActiveEffect', [
+					{
+						name: game.i18n.format('DOCUMENT.New', {
+							type: game.i18n.localize('DOCUMENT.ActiveEffect')
+						}),
+						icon: 'icons/svg/aura.svg',
+						origin: owner.uuid,
+						'duration.rounds': li.dataset.effectType === 'temporary' ? 1 : undefined,
+						disabled: li.dataset.effectType === 'inactive'
+					}
+				])
+			case 'edit':
+				return effect.sheet.render(true)
+			case 'delete':
+				return effect.delete()
+			case 'toggle':
+				return effect.update({ disabled: !effect.disabled })
+		}
+	}
+
+	async _onActiveEffectDisplayInfo(event) {
+		event.preventDefault()
+		event.stopPropagation()
+		let section = event.currentTarget.closest('.effect-row')
+		let editor = $(section).find('.effect-description')
+		editor.toggleClass('invisible')
+	}
+
+	prepareActiveEffectCategories(effects) {
+		// Define effect header categories
+		const categories = {
+			temporary: {
+				type: 'temporary',
+				label: game.i18n.localize('ASTRO.activeEffect.temporary'),
+				effects: []
+			},
+			passive: {
+				type: 'passive',
+				label: game.i18n.localize('ASTRO.activeEffect.passive'),
+				effects: []
+			},
+			inactive: {
+				type: 'inactive',
+				label: game.i18n.localize('ASTRO.activeEffect.inactive'),
+				effects: []
+			}
+		}
+
+		// Iterate over active effects, classifying them into categories
+		for (let e of effects) {
+			if (e.disabled) categories.inactive.effects.push(e)
+			else if (e.isTemporary) categories.temporary.effects.push(e)
+			else categories.passive.effects.push(e)
+		}
+		return categories
 	}
 
 	_onItemEdit(event) {

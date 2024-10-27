@@ -44,5 +44,16 @@
 	"ASTRO.actor.itemOption.editItem": "Edit Item",
 	"ASTRO.actor.itemOption.deleteItem": "Delete Item",
 	"ASTRO.ui.notifications.noStamina": "There's no stamina to use this",
-	"ASTRO.ui.notifications.lowStamina": "Insufficient stamina to use this"
+	"ASTRO.ui.notifications.lowStamina": "Insufficient stamina to use this",
+	"ASTRO.activeEffect": {
+		"temporary": "Temporary",
+		"passive": "Passive",
+		"inactive": "Inactive",
+		"toggle": "Toggle Effect",
+        "update": "Edit Effect",
+        "delete": "Delete Effect"
+	},
+	"ASTRO.statusEffect": {
+		"overheat": "Overheat"
+	}
 }
