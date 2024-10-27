@@ -1,110 +1,182 @@
+.astroprisma.character .window-header {
+  background: #fafafa;
+  color: #303030;
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+.astroprisma.character .window-header .header-button {
+  text-shadow: none;
+}
+.astroprisma.character .window-header .close {
+  color: #d71f30;
+}
+.astroprisma.character .window-content {
+  background-image: url(../assets/line-detail.svg), url(../assets/topo.svg), url(../assets/nnoise.svg);
+  background-position: 50px center, center center, center center;
+  background-repeat: no-repeat, repeat, repeat;
+  padding: 0;
+}
+.astroprisma.character .window-resizable-handle {
+  display: none;
+}
 .astroprisma.sheet.actor.character .astro-header {
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
-  gap: 10px;
-  margin-top: 10px;
-}
-.astroprisma.sheet.actor.character .astro-header .char-img {
-  height: 140px;
-  width: 120px;
-  object-fit: cover;
-  border-radius: 3px;
-}
-.astroprisma.sheet.actor.character .astro-header .char-data {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  background: url(../assets/wnnoise.svg);
+}
+.astroprisma.sheet.actor.character .astro-header .char-info {
+  display: flex;
+  flex-direction: row;
+  padding: 0 5px 0;
+  gap: 5px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3), 0px -10px 10px rgba(0, 0, 0, 0.3);
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .char-data {
+  display: flex;
+  flex-direction: column;
   align-self: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
-.astroprisma.sheet.actor.character .astro-header .char-data .char-data-name {
-  border: none;
-  text-align: center;
-  background: rgba(130, 130, 130, 0.15);
-  height: 50px;
+.astroprisma.sheet.actor.character .astro-header .char-info .char-data .char-data-name,
+.astroprisma.sheet.actor.character .astro-header .char-info .char-data .char-data-origin {
+  border: 1px solid transparent;
+  background: rgba(130, 130, 130, 0);
+  padding: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  height: 35px;
+  color: pinkrgb(25, 24, 19);
 }
-.astroprisma.sheet.actor.character .astro-header .char-data .char-data-origin {
-  border: none;
-  text-align: center;
-  background: rgba(130, 130, 130, 0.15);
-  height: 50px;
+.astroprisma.sheet.actor.character .astro-header .char-info .char-data .char-data-origin {
+  height: 30px;
 }
-.astroprisma.sheet.actor.character .astro-header .char-data h1 {
+.astroprisma.sheet.actor.character .astro-header .char-info .char-data h1,
+.astroprisma.sheet.actor.character .astro-header .char-info .char-data h3 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor.character .astro-header .hyperserum {
-  gap: 10px;
-}
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-hyperdrive {
-  display: flex;
-  gap: 10px;
-  color: black;
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 10px;
-  text-transform: uppercase;
-  align-items: center;
-  justify-content: center;
-}
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-hyperdrive h1,
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-hyperdrive h2,
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-hyperdrive h3 {
-  border-bottom: none;
-  margin: 0;
-}
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-hyperdrive > h2 {
-  font-weight: bold;
-}
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum {
-  display: flex;
-  gap: 20px;
-  color: black;
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 10px;
-  text-transform: uppercase;
-  align-items: center;
-  justify-content: center;
-}
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum h1,
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum h2,
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum h3 {
-  border-bottom: none;
-  margin: 0;
-}
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum .hyperserum-serum-input {
-  width: 10ch;
-  border: none;
-  text-align: center;
-  background: rgba(130, 130, 130, 0.15);
-}
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum .hyperserum-serum-input:focus {
+.astroprisma.sheet.actor.character .astro-header .char-info .char-data .char-data-name:hover,
+.astroprisma.sheet.actor.character .astro-header .char-info .char-data .char-data-name:focus,
+.astroprisma.sheet.actor.character .astro-header .char-info .char-data .char-data-origin:hover,
+.astroprisma.sheet.actor.character .astro-header .char-info .char-data .char-data-origin:focus {
   box-shadow: 0 0 5px #f13d58;
   border: 1px solid #f13d58;
 }
-.astroprisma.sheet.actor.character .astro-header .hyperserum .hyperserum-serum > h2 {
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container {
+  margin-top: 5px;
+  position: relative;
+  height: 20px;
+  width: 100%;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .progress-text {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
   font-weight: bold;
+  color: white;
+  border-bottom: none;
+  align-items: baseline;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .progress-input {
+  justify-content: center;
+  border: none;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container input.progress-input,
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .progress-total {
+  background-color: rgba(0, 0, 0, 0);
+  line-height: 20px;
+  width: 60px;
+  height: 30px;
+  border: none;
+  font-weight: bold;
+  color: white;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .hp-bar,
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .sta-bar {
+  height: 30px;
+  width: 150px;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .hp-bar,
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .hp-bar::-webkit-progress-bar {
+  border: none;
+  background: rgba(215, 31, 48, 0.4);
+  border-radius: 5px;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .hp-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, #690b14 0%, #97000e 25%, #d71f30 100%);
+  border-radius: 5px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .hp-bar::-moz-progress-value,
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .hp-bar::-moz-progress-bar {
+  border-radius: 5px;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .hp-bar::-moz-progress-bar {
+  background: linear-gradient(90deg, #690b14 0%, #97000e 25%, #d71f30 100%);
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .sta-bar,
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .sta-bar::-webkit-progress-bar {
+  border: none;
+  background: rgba(86, 192, 193, 0.4);
+  border-radius: 5px;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .sta-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, #083f40 0%, #008889 25%, #56c0c1 100%);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .sta-bar::-moz-progress-value,
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .sta-bar::-moz-progress-bar {
+  border-radius: 5px;
+}
+.astroprisma.sheet.actor.character .astro-header .char-info .bars-container .progress-container .sta-bar::-moz-progress-bar {
+  background: linear-gradient(90deg, #083f40 0%, #008889 25%, #56c0c1 100%);
+}
+.astroprisma.sheet.actor.character .astro-header .char-img {
+  height: 200px;
+  width: 360px;
+  object-fit: cover;
+  border: none;
 }
 .astroprisma.sheet.actor.character .astro-section {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 10px 0 10px;
 }
 .astroprisma.sheet.actor.character .astro-section .values {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
   color: black;
-  border: 1px solid black;
   border-radius: 3px;
   padding: 10px;
   text-transform: uppercase;
   margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  justify-content: center;
 }
 .astroprisma.sheet.actor.character .astro-section .values .values-div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 .astroprisma.sheet.actor.character .astro-section .values .values-div h1,
 .astroprisma.sheet.actor.character .astro-section .values .values-div h2,
@@ -112,15 +184,23 @@
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor.character .astro-section .values .values-div .values-div-input {
+.astroprisma.sheet.actor.character .astro-section .values .values-div .values-div-input,
+.astroprisma.sheet.actor.character .astro-section .values .values-div .values-div-input-readonly {
   width: 3ch;
-  border: none;
   text-align: center;
-  background: rgba(130, 130, 130, 0.15);
+  border: 1px solid transparent;
+  background: rgba(130, 130, 130, 0);
+  transition: border-color 0.3s ease, background 0.3s ease;
+  font-size: 28px;
 }
-.astroprisma.sheet.actor.character .astro-section .values .values-div .values-div-input:focus {
+.astroprisma.sheet.actor.character .astro-section .values .values-div .values-div-input:focus,
+.astroprisma.sheet.actor.character .astro-section .values .values-div .values-div-input:hover {
   box-shadow: 0 0 5px #f13d58;
   border: 1px solid #f13d58;
+  background: rgba(215, 215, 215, 0.4);
+}
+.astroprisma.sheet.actor.character .astro-section .values .values-div .values-div-input-serum {
+  width: 140px;
 }
 .astroprisma.sheet.actor.character .astro-section .values .values-div .input-readonly {
   -webkit-user-select: none;
@@ -132,6 +212,15 @@
   box-shadow: none;
   border: none;
 }
+.astroprisma.sheet.actor.character .astro-section .values .values-div .values-control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.astroprisma.sheet.actor.character .astro-section .values .values-div-hyperdrive {
+  gap: 20px;
+}
 .astroprisma.sheet.actor.character .astro-section .values .values-div > h2 {
   font-weight: bold;
 }
@@ -139,19 +228,33 @@
   font-weight: lighter;
 }
 .astroprisma.sheet.actor.character .astro-section .favor {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
   color: black;
-  border: 1px solid black;
   border-radius: 3px;
   padding: 10px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+}
+.astroprisma.sheet.actor.character .astro-section .favor h2 {
+  border: none;
+  margin: 0;
+  font-weight: bold;
 }
 .astroprisma.sheet.actor.character .astro-section .favor .favor-div {
   display: flex;
-  flex-direction: column;
+  gap: 5px;
+  flex-direction: row;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  width: 100px;
+  padding: 5px;
 }
 .astroprisma.sheet.actor.character .astro-section .favor .favor-div h2,
 .astroprisma.sheet.actor.character .astro-section .favor .favor-div h3 {
@@ -159,7 +262,7 @@
   margin: 0;
 }
 .astroprisma.sheet.actor.character .astro-section .favor .favor-div .favor-div-input {
-  width: 5ch;
+  width: 40px;
   border: none;
   text-align: center;
   background: rgba(130, 130, 130, 0.15);
@@ -168,101 +271,144 @@
   box-shadow: 0 0 5px #f13d58;
   border: 1px solid #f13d58;
 }
+.astroprisma.sheet.actor.character .astro-section .favor .favor-div .favor-img {
+  border: none;
+  width: 40px;
+  height: 40px;
+}
 .astroprisma.sheet.actor.character .astro-section .favor .favor-div > h3 {
   padding-top: 5px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar {
-  margin-bottom: 20px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 20px;
+.astroprisma.sheet.actor.character .astro-section .favor .favor-warg {
+  background-image: url(../assets/factions/WARG.png);
+  width: 30px;
+  height: 30px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .attributes {
-  flex-direction: column;
+.astroprisma.sheet.actor.character .attributes {
+  flex-direction: row;
   gap: 10px;
   color: white;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div {
+.astroprisma.sheet.actor.character .attributes .attribute-div {
   display: flex;
+  flex-direction: column;
   color: black;
-  gap: 10px;
-  background-color: black;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
   border-radius: 5px;
-  padding: 10px;
   text-transform: uppercase;
   align-items: center;
   justify-content: center;
   place-content: space-around;
+  transition: background 0.3s ease;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div h1,
-.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div h2,
-.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div h3 {
+.astroprisma.sheet.actor.character .attributes .attribute-div h1,
+.astroprisma.sheet.actor.character .attributes .attribute-div h2,
+.astroprisma.sheet.actor.character .attributes .attribute-div h3 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div .attribute-div-label {
-  background-color: white;
+.astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-label {
+  background: transparent;
   width: 8ch;
   padding: 5px;
-  border-radius: 10px 0px 15px 0px;
+  border-radius: 10px 10px 0px 0px;
   font-weight: bold;
   text-align: center;
+  transition: background 0.3s ease, color 0.1s ease;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div .attribute-div-label:hover {
-  background-color: #f13d58;
+.astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-label:hover {
+  background: #f13d58;
+  color: white;
   cursor: pointer;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div .attribute-div-input {
+.astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-input {
   width: 3ch;
   padding: 5px;
-  border: none;
+  border: 1px solid transparent;
   text-align: center;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0);
+  transition: border 0.3s ease, background 0.3s ease;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .attributes .attribute-div .attribute-div-input:focus {
+.astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-input:hover,
+.astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-input:focus {
   box-shadow: 0 0 5px #f13d58;
   border: 1px solid #f13d58;
+  background: rgba(255, 255, 255, 0.3);
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs {
+.astroprisma.sheet.actor.character .attributes .attribute-div:has(.attribute-div-label:hover) {
+  background: rgba(255, 255, 255, 0.7);
+}
+.astroprisma.sheet.actor.character .tabs {
   display: grid;
   grid-template-rows: 1fr 6fr;
   grid-template-columns: 1fr;
-  border: 1px solid black;
   border-radius: 3px;
   font-size: 12px;
   height: 247px;
+  margin-bottom: 10px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .tab-nav {
+.astroprisma.sheet.actor.character .tabs .tab-nav {
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  border-radius: 5px 5px 0 0;
   gap: 20px;
-  background-color: black;
-  color: white;
+  background-color: #fafafa;
+  color: black;
   text-transform: uppercase;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .tab-nav a {
-  text-align: center;
-}
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .tab-select {
-  overflow-y: scroll;
-}
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .tab-select .editor {
-  height: auto;
-}
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section {
+.astroprisma.sheet.actor.character .tabs .tab-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
   padding: 5px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section h4 {
+.astroprisma.sheet.actor.character .tabs .tab-nav a:hover {
+  text-shadow: none;
+}
+.astroprisma.sheet.actor.character .tabs .tab-nav .active {
+  background-color: white;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+}
+.astroprisma.sheet.actor.character .tabs .tab-select {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  overflow-y: scroll;
+  border-radius: 0 0 5px 5px;
+}
+.astroprisma.sheet.actor.character .tabs .tab-select .editor {
+  height: 400px;
+}
+.astroprisma.sheet.actor.character .tabs .tab-select .editor .editor-edit {
+  background-color: white;
+  border: none;
+  text-shadow: none;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+}
+.astroprisma.sheet.actor.character .tabs ::-webkit-scrollbar-thumb {
+  background-color: #fafafa;
+  border: none;
+  border-radius: 0px;
+}
+.astroprisma.sheet.actor.character .tabs .weapons-section {
+  padding: 5px;
+}
+.astroprisma.sheet.actor.character .tabs .weapons-section h4 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-header {
-  border-radius: 5px;
+.astroprisma.sheet.actor.character .tabs .weapons-section .items-header {
+  border-radius: 5px 5px 0 0;
   padding: 5px 10px;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 1.8fr 2fr 2fr 1fr 1fr;
   place-items: center;
   background-color: #d71f30;
   color: white;
@@ -272,55 +418,54 @@
   position: sticky;
   top: -1px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section ol {
+.astroprisma.sheet.actor.character .tabs .weapons-section ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list {
+.astroprisma.sheet.actor.character .tabs .weapons-section .items-list {
   display: flex;
   flex-direction: column;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item .item-row {
-  padding: 5px 10px 0;
+.astroprisma.sheet.actor.character .tabs .weapons-section .items-list .weapon-item .item-row {
+  padding: 5px 10px 5px;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 1.8fr 2fr 2fr 1fr 1fr;
   place-items: center;
   color: #310005;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item .weapon-img {
+.astroprisma.sheet.actor.character .tabs .weapons-section .items-list .weapon-item .weapon-img {
   object-fit: cover;
   height: 30px;
   width: 30px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item:nth-child(odd) {
+.astroprisma.sheet.actor.character .tabs .weapons-section .items-list .weapon-item:nth-child(odd) {
   background-color: #ffb7bd;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item:nth-child(even) {
+.astroprisma.sheet.actor.character .tabs .weapons-section .items-list .weapon-item:nth-child(even) {
   background-color: #ff9ea7;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item:first-child {
-  border-radius: 5px 5px 0 0;
+.astroprisma.sheet.actor.character .tabs .weapons-section .items-list .weapon-item:first-child {
+  border-radius: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .items-list .weapon-item:last-child {
+.astroprisma.sheet.actor.character .tabs .weapons-section .items-list .weapon-item:last-child {
   border-radius: 0 0 5px 5px;
+}
+.astroprisma.sheet.actor.character .tabs .weapons-section .item-info {
   padding-bottom: 5px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .weapons-section .item-info {
-  padding-bottom: 5px;
-}
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section {
+.astroprisma.sheet.actor.character .tabs .hacks-section {
   padding: 5px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section h4 {
+.astroprisma.sheet.actor.character .tabs .hacks-section h4 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-header {
-  border-radius: 5px;
+.astroprisma.sheet.actor.character .tabs .hacks-section .items-header {
+  border-radius: 5px 5px 0 0;
   padding: 5px 10px;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 1.8fr 2fr 2fr 1fr 1fr;
   place-items: center;
   background-color: #35ae44;
   color: white;
@@ -330,55 +475,54 @@
   position: sticky;
   top: -1px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section ol {
+.astroprisma.sheet.actor.character .tabs .hacks-section ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list {
+.astroprisma.sheet.actor.character .tabs .hacks-section .items-list {
   display: flex;
   flex-direction: column;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item .item-row {
-  padding: 5px 10px 0;
+.astroprisma.sheet.actor.character .tabs .hacks-section .items-list .hack-item .item-row {
+  padding: 5px 10px 5px;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 1.8fr 2fr 2fr 1fr 1fr;
   place-items: center;
   color: #002f06;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item .hack-img {
+.astroprisma.sheet.actor.character .tabs .hacks-section .items-list .hack-item .hack-img {
   object-fit: cover;
   height: 30px;
   width: 30px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item:nth-child(odd) {
+.astroprisma.sheet.actor.character .tabs .hacks-section .items-list .hack-item:nth-child(odd) {
   background-color: #a3eaab;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item:nth-child(even) {
+.astroprisma.sheet.actor.character .tabs .hacks-section .items-list .hack-item:nth-child(even) {
   background-color: #7fde8b;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item:first-child {
-  border-radius: 5px 5px 0 0;
+.astroprisma.sheet.actor.character .tabs .hacks-section .items-list .hack-item:first-child {
+  border-radius: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .items-list .hack-item:last-child {
+.astroprisma.sheet.actor.character .tabs .hacks-section .items-list .hack-item:last-child {
   border-radius: 0 0 5px 5px;
+}
+.astroprisma.sheet.actor.character .tabs .hacks-section .item-info {
   padding-bottom: 5px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .hacks-section .item-info {
-  padding-bottom: 5px;
-}
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section {
+.astroprisma.sheet.actor.character .tabs .cybertechs-section {
   padding: 5px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section h4 {
+.astroprisma.sheet.actor.character .tabs .cybertechs-section h4 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section .items-header {
-  border-radius: 5px;
+.astroprisma.sheet.actor.character .tabs .cybertechs-section .items-header {
+  border-radius: 5px 5px 0 0;
   padding: 5px 10px;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 1.8fr 2fr 2fr 1fr 1fr;
   place-items: center;
   background-color: #56c0c1;
   color: white;
@@ -388,55 +532,54 @@
   position: sticky;
   top: -1px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section ol {
+.astroprisma.sheet.actor.character .tabs .cybertechs-section ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section .items-list {
+.astroprisma.sheet.actor.character .tabs .cybertechs-section .items-list {
   display: flex;
   flex-direction: column;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section .items-list .cybertech-item .item-row {
-  padding: 5px 10px 0;
+.astroprisma.sheet.actor.character .tabs .cybertechs-section .items-list .cybertech-item .item-row {
+  padding: 5px 10px 5px;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 1.8fr 2fr 2fr 1fr 1fr;
   place-items: center;
   color: #002323;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section .items-list .cybertech-item .cybertech-img {
+.astroprisma.sheet.actor.character .tabs .cybertechs-section .items-list .cybertech-item .cybertech-img {
   object-fit: cover;
   height: 30px;
   width: 30px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section .items-list .cybertech-item:nth-child(odd) {
+.astroprisma.sheet.actor.character .tabs .cybertechs-section .items-list .cybertech-item:nth-child(odd) {
   background-color: #b7f6f6;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section .items-list .cybertech-item:nth-child(even) {
+.astroprisma.sheet.actor.character .tabs .cybertechs-section .items-list .cybertech-item:nth-child(even) {
   background-color: #8be4e4;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section .items-list .cybertech-item:first-child {
-  border-radius: 5px 5px 0 0;
+.astroprisma.sheet.actor.character .tabs .cybertechs-section .items-list .cybertech-item:first-child {
+  border-radius: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section .items-list .cybertech-item:last-child {
+.astroprisma.sheet.actor.character .tabs .cybertechs-section .items-list .cybertech-item:last-child {
   border-radius: 0 0 5px 5px;
+}
+.astroprisma.sheet.actor.character .tabs .cybertechs-section .item-info {
   padding-bottom: 5px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .cybertechs-section .item-info {
-  padding-bottom: 5px;
-}
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section {
+.astroprisma.sheet.actor.character .tabs .inventory-section {
   padding: 5px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section h4 {
+.astroprisma.sheet.actor.character .tabs .inventory-section h4 {
   border-bottom: none;
   margin: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-header {
-  border-radius: 5px;
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-header {
+  border-radius: 5px 5px 0 0;
   padding: 5px 10px;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 1.8fr 2fr 2fr 1fr 1fr;
   place-items: center;
   background-color: #f4b915;
   color: #1d1500;
@@ -446,28 +589,28 @@
   position: sticky;
   top: -1px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-header h4 {
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-header h4 {
   border-bottom: none;
   margin: 0;
   text-align: center;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section ol {
+.astroprisma.sheet.actor.character .tabs .inventory-section ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list {
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-list {
   display: flex;
   flex-direction: column;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item .item-row {
-  padding: 5px 10px 0;
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-list .inventory-item .item-row {
+  padding: 5px 10px 5px;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 1.8fr 2fr 2fr 1fr 1fr;
   place-items: center;
   color: #1d1500;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item .item-row input {
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-list .inventory-item .item-row input {
   width: 2rem;
   background: none;
   border: 1px solid transparent;
@@ -477,32 +620,31 @@
   text-align: center;
   transition: border-color 0.5s ease;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item .item-row input:hover,
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item .item-row input:focus {
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-list .inventory-item .item-row input:hover,
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-list .inventory-item .item-row input:focus {
   border: #1d1500 1px solid;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item .inventory-img {
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-list .inventory-item .inventory-img {
   object-fit: cover;
   height: 30px;
   width: 30px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item:nth-child(odd) {
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-list .inventory-item:nth-child(odd) {
   background-color: #ffe498;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item:nth-child(even) {
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-list .inventory-item:nth-child(even) {
   background-color: #ffdb77;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item:first-child {
-  border-radius: 5px 5px 0 0;
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-list .inventory-item:first-child {
+  border-radius: 0;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .items-list .inventory-item:last-child {
+.astroprisma.sheet.actor.character .tabs .inventory-section .items-list .inventory-item:last-child {
   border-radius: 0 0 5px 5px;
+}
+.astroprisma.sheet.actor.character .tabs .inventory-section .item-info {
   padding-bottom: 5px;
 }
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .inventory-section .item-info {
-  padding-bottom: 5px;
-}
-.astroprisma.sheet.actor.character .astro-sidebar .tabs .items-list .invisible {
+.astroprisma.sheet.actor.character .tabs .items-list .invisible {
   display: none;
 }
 .astroprisma.sheet.actor.character .astro-footer {

@@ -1,19 +1,29 @@
 <form class="{{cssClass}}" autocomplete="off">
 	<header class="astro-header">
 		<img class="char-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
-		<div class="char-data">
-		<h1><input class="char-data-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize "ASTRO.actor.name"}}" /></h1>
-		<h1><input class="char-data-origin" name="system.origin.name" type="text" value="{{system.origin.name}}" placeholder="{{localize "ASTRO.actor.origin"}}" /></h1>
-		</div>
-		{{> "systems/astroprisma/templates/actor/part/character/char/char-hyperserum.hbs"}}
-
+        <div class="char-info">
+            <div class="char-data">
+            <h1><input class="char-data-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize "ASTRO.actor.name"}}" /></h1>
+            <h3><input class="char-data-origin" name="system.origin.name" type="text" value="{{system.origin.name}}" placeholder="{{localize "ASTRO.actor.origin"}}" /></h3>
+            </div>
+            <div class="bars-container">
+                <div class='progress-container'>
+                    <progress class='hp-bar' value='{{system.values.health.value}}' max='{{system.values.health.max}}'></progress>
+                    <h3 class='progress-text'><input class='progress-input' name='system.values.health.value' type='number' value='{{system.values.health.value}}' max='{{system.values.health.max}}' placeholder='0' data-dtype='Number' />
+                        |<span class='progress-total'>{{system.values.health.max}}</span></h3>
+                </div>
+                <div class='progress-container'>
+                    <progress class='sta-bar' value='{{system.values.energy.value}}' max='{{system.values.energy.max}}'></progress>
+                    <h3 class='progress-text'><input class='progress-input' name='system.values.energy.value' type='number' value='{{system.values.energy.value}}' max='{{system.values.energy.max}}' placeholder='0' data-dtype='Number' />
+                        |<span class='progress-total'>{{system.values.energy.max}}</span></h3>
+                </div>
+            </div>
+        </div>
 	</header>
-		<section class="astro-section">
-			{{> "systems/astroprisma/templates/actor/part/character/char/char-summary.hbs"}}
-			{{> "systems/astroprisma/templates/actor/part/character/char/char-favor.hbs"}}
-		</section>
-		<section class="astro-sidebar flexrow">
-			{{> "systems/astroprisma/templates/actor/part/character/char/char-status.hbs"}}
-			{{> "systems/astroprisma/templates/actor/part/character/char/char-tabs.hbs"}}
-		</section>
+    <section class="astro-section">
+        {{> "systems/astroprisma/templates/actor/part/character/char/char-summary.hbs"}}
+        {{> "systems/astroprisma/templates/actor/part/character/char/char-status.hbs"}}
+        {{> "systems/astroprisma/templates/actor/part/character/char/char-tabs.hbs"}}
+        {{> "systems/astroprisma/templates/actor/part/character/char/char-favor.hbs"}}
+    </section>
 </form>

@@ -19,7 +19,7 @@ Hooks.once('init', function () {
 		AstroprismaItem,
 		AstroprismaCharacterSheet,
 		AstroprismaNpcSheet,
-		rollItemMacro,
+		rollItemMacro
 	}
 
 	CONFIG.ASTROPRISMA = astroprisma
@@ -30,7 +30,7 @@ Hooks.once('init', function () {
 
 	CONFIG.Actor.dataModels = {
 		character: models.AstroprismaCharacter,
-		npc: models.AstroprismaNpc,
+		npc: models.AstroprismaNpc
 	}
 	CONFIG.Item.dataModels = {
 		weapon: models.AstroprismaWeapon,
@@ -44,7 +44,7 @@ Hooks.once('init', function () {
 		armor: models.AstroprismaArmor,
 		cybertech: models.AstroprismaCybertech,
 		origin: models.AstroprismaOrigin,
-		questItem: models.AstroprismaQuestItem,
+		questItem: models.AstroprismaQuestItem
 	}
 
 	Items.unregisterSheet('core', ItemSheet)
@@ -73,6 +73,10 @@ Handlebars.registerHelper('ifEach', function (collection, condition, options) {
 	}
 })
 
+Handlebars.registerHelper('factionPath', (filename) => {
+	return `systems/astroprisma/assets/factions/${filename}.png`
+})
+
 async function createItemMacro(data, slot) {
 	// First, determine if this is a valid owned item.
 	if (data.type !== 'Item') return
@@ -91,7 +95,7 @@ async function createItemMacro(data, slot) {
 			type: 'script',
 			img: item.img,
 			command: command,
-			flags: { 'astroprisma.itemMacro': true },
+			flags: { 'astroprisma.itemMacro': true }
 		})
 	}
 	game.user.assignHotbarMacro(macro, slot)
@@ -107,7 +111,7 @@ function rollItemMacro(itemUuid) {
 	// Reconstruct the drop data so that we can load the item.
 	const dropData = {
 		type: 'Item',
-		uuid: itemUuid,
+		uuid: itemUuid
 	}
 	// Load the item from the uuid.
 	Item.fromDropData(dropData).then((item) => {
