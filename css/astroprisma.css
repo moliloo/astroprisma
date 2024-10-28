@@ -311,18 +311,40 @@
   margin: 0;
 }
 .astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-label {
+  display: flex;
+  flex-direction: row;
   background: transparent;
-  width: 8ch;
   padding: 5px;
   border-radius: 10px 10px 0px 0px;
-  font-weight: bold;
   text-align: center;
-  transition: background 0.3s ease, color 0.1s ease;
+  width: 100%;
+  transition: background 0.3s ease, color 0.1s ease, width 0.1s ease;
 }
 .astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-label:hover {
+  display: flex;
+  gap: 3px;
   background: #f13d58;
   color: white;
   cursor: pointer;
+  justify-content: center;
+}
+.astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-label:hover .attribute-div-label-total {
+  width: 100%;
+  visibility: visible;
+  color: white;
+  /* Estilo adicional para o texto ao aparecer */
+  font-weight: bold;
+  transition: width 0.1s ease, visibility 0.1s ease;
+}
+.astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-label-status {
+  font-weight: bold;
+}
+.astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-label-total {
+  width: 0px;
+  visibility: hidden;
+  /* Oculta o total por padrão */
+  transition: width 0.1s ease, visibility 0.1s ease;
+  /* Transição para a largura */
 }
 .astroprisma.sheet.actor.character .attributes .attribute-div .attribute-div-input {
   width: 3ch;

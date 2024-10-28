@@ -1,18 +1,37 @@
 <div class='attributes flexcol'>
 	<div class='attribute-div'>
-		<h1><input class='attribute-div-input' name='system.attributes.vigor' type='number' placeholder='0' value='{{system.attributes.vigor}}' data-dtype='Number' /></h1>
-		<a class='rollable' data-status='vigor' data-roll-type='attribute'><h3 class='attribute-div-label'>{{localize 'ASTRO.stat.vigor'}}</h3></a>
+		<h1><input class='attribute-div-input' name='system.attributes.vigor.value' type='number' placeholder='0' value='{{system.attributes.vigor.value}}' data-dtype='Number' /></h1>
+		<a class='rollable' data-status='vigor' data-roll-type='attribute' data-value='{{system.attributes.vigor.value}}' data-bonus='{{system.attributes.vigor.bonus}}'>
+			<div class='attribute-div-label'>
+				<h3 class='attribute-div-label-status'>{{localize 'ASTRO.stat.vigor'}}</h3>
+				<h3 class='attribute-div-label-total'>+{{sum system.attributes.vigor.value system.attributes.vigor.bonus}}</h3>
+			</div>
+		</a>
 	</div>
 	<div class='attribute-div'>
-		<h1><input class='attribute-div-input' name='system.attributes.grace' type='number' value='{{system.attributes.grace}}' data-dtype='Number' /></h1>
-		<a class='rollable' data-status='grace' data-roll-type='attribute'><h3 class='attribute-div-label'>{{localize 'ASTRO.stat.grace'}}</h3></a>
+		<h1><input class='attribute-div-input' name='system.attributes.grace.value' type='number' value='{{system.attributes.grace.value}}' data-dtype='Number' /></h1>
+		<a class='rollable' data-status='grace' data-roll-type='attribute' data-value='{{system.attributes.grace.value}}' data-bonus='{{system.attributes.grace.bonus}}'>
+			<div class='attribute-div-label'>
+				<h3 class='attribute-div-label-status'>{{localize 'ASTRO.stat.grace'}}</h3>
+				<h3 class='attribute-div-label-total'>+{{sum system.attributes.grace.value system.attributes.grace.bonus}}</h3>
+			</div></a>
 	</div>
 	<div class='attribute-div'>
-		<h1><input class='attribute-div-input' name='system.attributes.mind' type='number' value='{{system.attributes.mind}}' data-dtype='Number' /></h1>
-		<a class='rollable' data-status='mind' data-roll-type='attribute'><h3 class='attribute-div-label'>{{localize 'ASTRO.stat.mind'}}</h3></a>
+		<h1><input class='attribute-div-input' name='system.attributes.mind.value' type='number' value='{{system.attributes.mind.value}}' data-dtype='Number' /></h1>
+		<a class='rollable' data-status='mind' data-roll-type='attribute' data-value='{{system.attributes.mind.value}}' data-bonus='{{system.attributes.mind.bonus}}'>
+			<div class='attribute-div-label'>
+				<h3 class='attribute-div-label-status'>{{localize 'ASTRO.stat.mind'}}</h3>
+				<h3 class='attribute-div-label-total'>+{{sum system.attributes.mind.value system.attributes.mind.bonus}}</h3>
+			</div>
+		</a>
 	</div>
 	<div class='attribute-div'>
-		<h1><input class='attribute-div-input' name='system.attributes.tech' type='number' value='{{system.attributes.tech}}' data-dtype='Number' /></h1>
-		<a class='rollable' data-status='tech' data-roll-type='attribute'><h3 class='attribute-div-label'>{{localize 'ASTRO.stat.tech'}}</h3></a>
+		<h1><input class='attribute-div-input' name='system.attributes.tech.value' type='number' value='{{system.attributes.tech.value}}' data-dtype='Number' /></h1>
+		<a class='rollable' data-status='tech' data-roll-type='attribute' data-value='{{system.attributes.tech.value}}' data-bonus='{{system.attributes.tech.bonus}}'>
+			<div class='attribute-div-label'>
+				<h3 class='attribute-div-label-status'>{{localize 'ASTRO.stat.tech'}}</h3>
+				<h3 class='attribute-div-label-total'>+{{sum system.attributes.tech.value system.attributes.tech.bonus}}</h3>
+			</div>
+		</a>
 	</div>
 </div>

@@ -332,18 +332,43 @@
 				margin: 0;
 			}
 			.attribute-div-label {
+				display: flex;
+				flex-direction: row;
 				background: transparent;
-				width: 8ch;
 				padding: 5px;
 				border-radius: 10px 10px 0px 0px;
-				font-weight: bold;
 				text-align: center;
-				transition: background 0.3s ease, color 0.1s ease;
+				width: 100%;
+				transition: background 0.3s ease, color 0.1s ease, width 0.1s ease;
+
+				// Efeito de hover no label
+				&:hover {
+					display: flex;
+					gap: 3px;
+					background: #f13d58;
+					color: white;
+					cursor: pointer;
+					justify-content: center;
+
+					// Mostra o total ao passar o mouse
+					.attribute-div-label-total {
+						width: 100%;
+						visibility: visible;
+						color: white; /* Estilo adicional para o texto ao aparecer */
+						font-weight: bold;
+						transition: width 0.1s ease, visibility 0.1s ease;
+					}
+				}
 			}
-			.attribute-div-label:hover {
-				background: #f13d58;
-				color: white;
-				cursor: pointer;
+
+			.attribute-div-label-status {
+				font-weight: bold;
+			}
+
+			.attribute-div-label-total {
+				width: 0px;
+				visibility: hidden; /* Oculta o total por padrão */
+				transition: width 0.1s ease, visibility 0.1s ease; /* Transição para a largura */
 			}
 			.attribute-div-input {
 				width: 3ch;

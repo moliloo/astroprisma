@@ -313,10 +313,42 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 		event.preventDefault()
 		const element = event.currentTarget
 		const dataset = element.dataset
+		let actor = this.actor.system.attributes
 		let scrollPos = $('.tab-select').scrollTop()
 
+		function getStatusTotal(status) {
+			let attribute
+
+			switch (status) {
+				case 'vigor':
+					attribute = actor.vigor
+					break
+				case 'grace':
+					attribute = actor.grace
+					break
+				case 'mind':
+					attribute = actor.mind
+					break
+				case 'tech':
+					attribute = actor.tech
+					break
+				default:
+					console.warn(`Attribute '${status}' don't find.`)
+					return 0
+			}
+			if (attribute) {
+				const value = Number(attribute.value) || 0
+				const bonus = Number(attribute.bonus) || 0
+				console.log(`Value: ${value}, Bonus: ${bonus}`)
+				return value + bonus
+			} else {
+				console.warn(`Attribute '${status}' don't have valuer or bonues.`)
+				return 0
+			}
+		}
+
 		if (dataset.rollType == 'attribute') {
-			let damage = `1d10 + @attributes.${dataset.status}[${game.i18n.localize(`ASTRO.stat.${dataset.status}`)}]`
+			let damage = `1d10 + ${getStatusTotal(dataset.status)}[${game.i18n.localize(`ASTRO.stat.${dataset.status}`)}]`
 			let roll = new Roll(damage, this.actor.getRollData())
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -333,7 +365,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 
 		if (dataset.rollType === 'weapon') {
 			let label = `<h1><img src='${dataset.img}' height='40' width='40' />${dataset.label}</h1>${dataset.description}`
-			let damage = `${dataset.roll} + @attributes.${dataset.bonus}[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
+			let damage = `${dataset.roll} + ${getStatusTotal(dataset.bonus)}[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
 			let roll = new Roll(damage, this.actor.getRollData())
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -360,7 +392,7 @@ export class AstroprismaCharacterSheet extends ActorSheet {
 						if (dataset.bonus === 'none') {
 							damage = `${dataset.roll}`
 						} else {
-							damage = `${dataset.roll} + @attributes.${dataset.bonus}[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
+							damage = `${dataset.roll} +${getStatusTotal(dataset.bonus)}[${game.i18n.localize(`ASTRO.stat.${dataset.bonus}`)}]`
 						}
 						let roll = new Roll(damage, this.actor.getRollData())
 						roll.toMessage({

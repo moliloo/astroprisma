@@ -77,6 +77,10 @@ Handlebars.registerHelper('factionPath', (filename) => {
 	return `systems/astroprisma/assets/factions/${filename}.png`
 })
 
+Handlebars.registerHelper('sum', (arg1, arg2) => {
+	return Number(arg1) + Number(arg2)
+})
+
 async function createItemMacro(data, slot) {
 	// First, determine if this is a valid owned item.
 	if (data.type !== 'Item') return
